@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 serde = { version = "1.0" }
 serde_json = { version = "1.0.68" }
+strum_macros = { version = "0.22.0" }

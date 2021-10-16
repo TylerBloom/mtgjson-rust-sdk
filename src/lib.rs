@@ -1,3 +1,4 @@
+/*
 #[cfg(test)]
 mod tests {
     #[test]
@@ -6,3 +7,6 @@ mod tests {
         assert_eq!(result, 4);
     }
 }
+*/
+
+pub mod model;
