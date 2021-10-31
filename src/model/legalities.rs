@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+/*
 use std::str::FromStr;
 use strum_macros::Display;
 
@@ -27,19 +29,22 @@ impl FromStr for Legality {
         }
     }
 }
+*/
 
+#[allow(non_snake_case)]
+#[derive(Serialize, Deserialize)]
 pub struct Legalities {
-    pub brawl: Legality,
-    pub duel: Legality,
-    pub frontier: Legality,
-    pub legacy: Legality,
-    pub pauper: Legality,
-    pub pioneer: Legality,
-    pub vintage: Legality,
-    pub commander: Legality,
-    pub future: Legality,
-    pub historic: Legality,
-    pub modern: Legality,
-    pub penny: Legality,
-    pub standard: Legality,
+    pub brawl: String,
+    pub duel: String,
+    pub frontier: String,
+    pub legacy: String,
+    pub pauper: String,
+    pub pioneer: String,
+    pub vintage: String,
+    pub commander: String,
+    pub future: String,
+    pub historic: String,
+    pub modern: String,
+    pub penny: String,
+    pub standard: String,
 }
