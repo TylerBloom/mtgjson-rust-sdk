@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
-use std::str::FromStr;
-use std::fmt;
+use serde_with::{serde_as, DisplayFromStr, skip_serializing_none};
+
+use crate::utils::number_deserializer::deserialize_number_from_string;
 
 use super::ruling::Ruling;
 use super::foreign_data::ForeignData;
@@ -10,122 +11,77 @@ use super::legalities::Legalities;
 use super::purchase_urls::PurchaseURLs;
 
 #[allow(non_snake_case)]
-#[derive(Serialize, Deserialize)]
+#[skip_serializing_none]
+#[serde_as]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Card {
-    uuid: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    uuid: Option<String>,
     artist: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     asciiName: Option<String>,
-    availability: Vec<String>,
-    borderColor: String,
-    colorIdentity: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    availability: Option<Vec<String>>,
+    borderColor: Option<String>,
+    colorIdentity: Vec<String>,
     colorIndicator: Option<Vec<String>>,
-    colors: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    colors: Vec<String>,
     convertedManaCost: Option<f32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     count: Option<u32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     duelDeck: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    edhrecRank: Option<i32>,
     faceConvertedManaCost: Option<f32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     faceName: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     flavorName: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     flavorText: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    foreignData: Option<ForeignData>,
-    frameEffects: Vec<String>,
-    frameVersion: String,
-    hasFoil: bool,
-    hasNonFoil: bool,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    foreignData: Option<Vec<ForeignData>>,
+    frameEffects: Option<Vec<String>>,
+    frameVersion: Option<String>,
+    hand: Option<i32>,
+    hasAlternativeDeckLimit: Option<bool>,
+    hasContentWarning: Option<bool>,
+    hasFoil: Option<bool>,
+    hasNonFoil: Option<bool>,
     identifiers: Option<Identifiers>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isAlternative: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isFullArt: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isOnlineOnly: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isOversized: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isPromo: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isReprint: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isReserved: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isStarter: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isStorySpotlight: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isTextless: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isTimeshifted: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     isFoil: Option<bool>,
+    keywords: Option<Vec<String>>,
     layout: String,
     legalities: Legalities,
+    leadershipSkills: Option<LeadershipSkills>,
+    life: Option<i32>,
+    loyalty: Option<i32>,
+    manaCost: Option<String>,
     name: String,
-    number: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    number: Option<String>,
     otherFaceIds: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    originalReleaseDate: Option<String>,
+    originalText: Option<String>,
+    originalType: Option<String>,
     purchaseUrls: Option<PurchaseURLs>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    #[serde(default)]
+    //#[serde(deserialize_with = "deserialize_number_from_string")]
+    power: Option<i32>,
+    printings: Option<Vec<String>>,
+    promoTypes: Option<Vec<String>>,
     rarity: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    reverseRelated: Option<Vec<String>>,
     rulings: Option<Vec<Ruling>>,
-    setCode: String,
+    setCode: Option<String>,
+    side: Option<String>,
     subtypes: Vec<String>,
     supertypes: Vec<String>,
-    types: Vec<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    variations: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    reverseRelated: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    edhrecRank: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    hand: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    hasContentWarning: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    hasAlternativeDeckLimit: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    keywords: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    leadershipSkills: Option<LeadershipSkills>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    life: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    loyalty: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    manaCost: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    originalReleaseDate: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    originalText: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    originalType: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    power: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    printings: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    promoTypes: Option<Vec<String>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    side: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     text: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     toughness: Option<i32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
+    types: Vec<String>,
+    variations: Option<Vec<String>>,
     watermark: Option<Vec<String>>,
 }
 

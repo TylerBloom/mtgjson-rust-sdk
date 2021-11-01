@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
 /*
 use std::str::FromStr;
 use strum_macros::Display;
@@ -32,19 +33,20 @@ impl FromStr for Legality {
 */
 
 #[allow(non_snake_case)]
-#[derive(Serialize, Deserialize)]
+#[skip_serializing_none]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Legalities {
-    pub brawl: String,
-    pub duel: String,
-    pub frontier: String,
-    pub legacy: String,
-    pub pauper: String,
-    pub pioneer: String,
-    pub vintage: String,
-    pub commander: String,
-    pub future: String,
-    pub historic: String,
-    pub modern: String,
-    pub penny: String,
-    pub standard: String,
+    pub brawl: Option<String>,
+    pub duel: Option<String>,
+    pub frontier: Option<String>,
+    pub legacy: Option<String>,
+    pub pauper: Option<String>,
+    pub pioneer: Option<String>,
+    pub vintage: Option<String>,
+    pub commander: Option<String>,
+    pub future: Option<String>,
+    pub historic: Option<String>,
+    pub modern: Option<String>,
+    pub penny: Option<String>,
+    pub standard: Option<String>,
 }

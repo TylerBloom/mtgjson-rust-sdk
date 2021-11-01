@@ -1,20 +1,15 @@
 use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
 
 #[allow(non_snake_case)]
-#[derive(Serialize, Deserialize)]
+#[skip_serializing_none]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ForeignData {
-    #[serde(skip_serializing_if = "Option::is_none")]
     faceName: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     flavorText: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     language: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     multiverseId: Option<u32>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     name: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     text: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     types: Option<String>,
 }
