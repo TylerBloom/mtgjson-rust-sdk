@@ -1,0 +1,141 @@
+{
+    "data": {
+        "Torrential Gearhulk": [
+            {
+                "colorIdentity": [
+                    "U"
+                ],
+                "colors": [
+                    "U"
+                ],
+                "convertedManaCost": 6.0,
+                "edhrecRank": 1782,
+                "foreignData": [
+                    {
+                        "language": "German",
+                        "name": "Str\u00f6mender Mechakoloss",
+                        "text": "Aufblitzen\nWenn der Str\u00f6mende Mechakoloss ins Spiel kommt, kannst du eine Spontanzauberkarte deiner Wahl aus deinem Friedhof wirken, ohne ihre Manakosten zu bezahlen. Falls die Karte in diesem Zug auf deinen Friedhof gelegt w\u00fcrde, schicke sie stattdessen ins Exil.",
+                        "type": "Artefaktkreatur \u2014 Konstrukt"
+                    },
+                    {
+                        "language": "Spanish",
+                        "name": "Mecatit\u00e1n torrencial",
+                        "text": "Destello.\nCuando el Mecatit\u00e1n torrencial entre al campo de batalla, puedes lanzar la carta de instant\u00e1neo objetivo de tu cementerio sin pagar su coste de man\u00e1. Si esa carta fuera a ser puesta en tu cementerio este turno, en vez de eso, ex\u00edliala.",
+                        "type": "Criatura artefacto \u2014 Constructo"
+                    },
+                    {
+                        "language": "French",
+                        "name": "Carcasse m\u00e9canique torrentielle",
+                        "text": "Flash\nQuand la Carcasse m\u00e9canique torrentielle arrive sur le champ de bataille, vous pouvez lancer une carte d'\u00e9ph\u00e9m\u00e8re cibl\u00e9e depuis votre cimeti\u00e8re sans payer son co\u00fbt de mana. Si cette carte devait \u00eatre mise dans votre cimeti\u00e8re ce tour-ci, exilez-la \u00e0 la place.",
+                        "type": "Cr\u00e9ature-artefact : construction"
+                    },
+                    {
+                        "language": "Italian",
+                        "name": "Meccatitano Torrenziale",
+                        "text": "Lampo\nQuando il Meccatitano Torrenziale entra nel campo di battaglia, puoi lanciare una carta istantaneo bersaglio dal tuo cimitero senza pagare il suo costo di mana. Se quella carta sta per essere messa nel tuo cimitero in questo turno, invece esiliala.",
+                        "type": "Creatura Artefatto \u2014 Costrutto"
+                    },
+                    {
+                        "language": "Japanese",
+                        "name": "\u5954\u6d41\u306e\u6a5f\u68b0\u5de8\u4eba",
+                        "text": "\u77ac\u901f\n\u5954\u6d41\u306e\u6a5f\u68b0\u5de8\u4eba\u304c\u6226\u5834\u306b\u51fa\u305f\u3068\u304d\u3001\u3042\u306a\u305f\u306e\u5893\u5730\u304b\u3089\u30a4\u30f3\u30b9\u30bf\u30f3\u30c8\u30fb\u30ab\u30fc\u30c9\uff11\u679a\u3092\u5bfe\u8c61\u3068\u3059\u308b\u3002\u3042\u306a\u305f\u306f\u305d\u308c\u3092\u3001\u305d\u306e\u30de\u30ca\u30fb\u30b3\u30b9\u30c8\u3092\u652f\u6255\u3046\u3053\u3068\u306a\u304f\u5531\u3048\u3066\u3082\u3088\u3044\u3002\u3053\u306e\u30bf\u30fc\u30f3\u306b\u305d\u306e\u30ab\u30fc\u30c9\u304c\u3042\u306a\u305f\u306e\u5893\u5730\u306b\u7f6e\u304b\u308c\u308b\u306a\u3089\u3001\u4ee3\u308f\u308a\u306b\u305d\u308c\u3092\u8ffd\u653e\u3059\u308b\u3002",
+                        "type": "\u30a2\u30fc\u30c6\u30a3\u30d5\u30a1\u30af\u30c8\u30fb\u30af\u30ea\u30fc\u30c1\u30e3\u30fc \u2014 \u69cb\u7bc9\u7269"
+                    },
+                    {
+                        "language": "Korean",
+                        "name": "\uaca9\ub958\uc758 \ud1b1\ub2c8\uac70\uc2e0\ubcd1",
+                        "text": "\uc12c\uad11\n\uaca9\ub958\uc758 \ud1b1\ub2c8\uac70\uc2e0\ubcd1\uc774 \uc804\uc7a5\uc5d0 \ub4e4\uc5b4\uc62c \ub54c, \ub2f9\uc2e0\uc758 \ubb34\ub364\uc5d0 \uc788\ub294 \uc21c\uac04\ub9c8\ubc95 \uce74\ub4dc\ub97c \ubaa9\ud45c\ub85c \uc815\ud55c\ub2e4. \ub2f9\uc2e0\uc740 \ub9c8\ub098 \ube44\uc6a9\uc744 \uc9c0\ubd88\ud558\uc9c0 \uc54a\uace0 \uadf8 \uce74\ub4dc\ub97c \ubc1c\ub3d9\ud560 \uc218 \uc788\ub2e4. \uadf8 \uce74\ub4dc\uac00 \uc774 \ud134\uc5d0 \ub2f9\uc2e0\uc758 \ubb34\ub364\uc5d0 \ub4e4\uc5b4\uac00\ub824\uace0 \ud558\uba74, \ub300\uc2e0\uc5d0 \uadf8 \uce74\ub4dc\ub97c \ucd94\ubc29\ud55c\ub2e4.",
+                        "type": "\ub9c8\ubc95\ubb3c\uccb4 \uc0dd\ubb3c \u2014 \uc790\ub3d9\uae30\uacc4"
+                    },
+                    {
+                        "language": "Portuguese (Brazil)",
+                        "name": "Mecanotit\u00e3 Torrencial",
+                        "text": "Lampejo\nQuando Mecanotit\u00e3 Torrencial entra no campo de batalha, voc\u00ea pode conjurar o card de m\u00e1gica instant\u00e2nea alvo do seu cemit\u00e9rio sem pagar seu custo de mana. Se aquele card seria colocado no seu cemit\u00e9rio neste turno, em vez disso, exile-o.",
+                        "type": "Criatura Artefato \u2014 Constructo"
+                    },
+                    {
+                        "language": "Russian",
+                        "name": "\u041c\u0435\u0445\u0430\u0433\u0438\u0433\u0430\u043d\u0442 \u041f\u043e\u0442\u043e\u043a\u043e\u0432",
+                        "text": "\u041c\u0438\u0433\n\u041a\u043e\u0433\u0434\u0430 \u041c\u0435\u0445\u0430\u0433\u0438\u0433\u0430\u043d\u0442 \u041f\u043e\u0442\u043e\u043a\u043e\u0432 \u0432\u044b\u0445\u043e\u0434\u0438\u0442 \u043d\u0430 \u043f\u043e\u043b\u0435 \u0431\u0438\u0442\u0432\u044b, \u0432\u044b \u043c\u043e\u0436\u0435\u0442\u0435 \u0440\u0430\u0437\u044b\u0433\u0440\u0430\u0442\u044c \u0446\u0435\u043b\u0435\u0432\u0443\u044e \u043a\u0430\u0440\u0442\u0443 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u044f \u0438\u0437 \u0432\u0430\u0448\u0435\u0433\u043e \u043a\u043b\u0430\u0434\u0431\u0438\u0449\u0430 \u0431\u0435\u0437 \u0443\u043f\u043b\u0430\u0442\u044b \u0435\u0435 \u043c\u0430\u043d\u0430-\u0441\u0442\u043e\u0438\u043c\u043e\u0441\u0442\u0438. \u0415\u0441\u043b\u0438 \u0442\u0430 \u043a\u0430\u0440\u0442\u0430 \u0434\u043e\u043b\u0436\u043d\u0430 \u0431\u044b\u0442\u044c \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0430 \u043d\u0430 \u0432\u0430\u0448\u0435 \u043a\u043b\u0430\u0434\u0431\u0438\u0449\u0435 \u0432 \u044d\u0442\u043e\u043c \u0445\u043e\u0434\u0443, \u0438\u0437\u0433\u043e\u043d\u0438\u0442\u0435 \u0435\u0435 \u0432\u043c\u0435\u0441\u0442\u043e \u044d\u0442\u043e\u0433\u043e.",
+                        "type": "\u0410\u0440\u0442\u0435\u0444\u0430\u043a\u0442 \u0421\u0443\u0449\u0435\u0441\u0442\u0432\u043e \u2014 \u041a\u043e\u043d\u0441\u0442\u0440\u0443\u043a\u0446\u0438\u044f"
+                    },
+                    {
+                        "language": "Chinese Simplified",
+                        "name": "\u6c79\u6d8c\u5de8\u68b0",
+                        "text": "\u95ea\u73b0\n\u5f53\u6c79\u6d8c\u5de8\u68b0\u8fdb\u6218\u573a\u65f6\uff0c\u4f60\u53ef\u4ee5\u4ece\u4f60\u7684\u575f\u5893\u573a\u65bd\u653e\u76ee\u6807\u77ac\u95f4\u724c\uff0c\u4e14\u4e0d\u9700\u652f\u4ed8\u5176\u6cd5\u672f\u529b\u8d39\u7528\u3002\u5982\u679c\u8be5\u724c\u4e8e\u672c\u56de\u5408\u4e2d\u5c06\u7f6e\u5165\u4f60\u7684\u575f\u5893\u573a\uff0c\u5219\u6539\u4e3a\u5c06\u5176\u653e\u9010\u3002",
+                        "type": "\u795e\u5668\u751f\u7269\uff5e\u7ec4\u6784\u4f53"
+                    },
+                    {
+                        "language": "Chinese Traditional",
+                        "name": "\u6d36\u6e67\u5de8\u68b0",
+                        "text": "\u9583\u73fe\n\u7576\u6d36\u6e67\u5de8\u68b0\u9032\u6230\u5834\u6642\uff0c\u4f60\u53ef\u4ee5\u5f9e\u4f60\u7684\u58b3\u5893\u5834\u65bd\u653e\u76ee\u6a19\u77ac\u9593\u724c\uff0c\u4e14\u4e0d\u9700\u652f\u4ed8\u5176\u9b54\u6cd5\u529b\u8cbb\u7528\u3002\u5982\u679c\u8a72\u724c\u65bc\u672c\u56de\u5408\u4e2d\u5c07\u7f6e\u5165\u4f60\u7684\u58b3\u5893\u5834\uff0c\u5247\u6539\u70ba\u5c07\u5176\u653e\u9010\u3002",
+                        "type": "\u795e\u5668\u751f\u7269\uff5e\u7d44\u69cb\u9ad4"
+                    }
+                ],
+                "identifiers": {
+                    "scryfallOracleId": "a6395447-677d-4c39-8eda-2d57e527c94e"
+                },
+                "keywords": [
+                    "Flash"
+                ],
+                "layout": "normal",
+                "legalities": {
+                    "commander": "Legal",
+                    "duel": "Legal",
+                    "gladiator": "Legal",
+                    "historic": "Legal",
+                    "historicbrawl": "Legal",
+                    "legacy": "Legal",
+                    "modern": "Legal",
+                    "pioneer": "Legal",
+                    "vintage": "Legal"
+                },
+                "manaCost": "{4}{U}{U}",
+                "manaValue": 6.0,
+                "name": "Torrential Gearhulk",
+                "power": "5",
+                "printings": [
+                    "KLD",
+                    "KLR",
+                    "MPS",
+                    "PKLD"
+                ],
+                "purchaseUrls": {
+                    "cardKingdom": "https://mtgjson.com/links/9d206663108ec5a3",
+                    "cardKingdomFoil": "https://mtgjson.com/links/944fa0dc55533841",
+                    "cardmarket": "https://mtgjson.com/links/04a9f5fc5b4d78b2",
+                    "tcgplayer": "https://mtgjson.com/links/551c80eb051764e9"
+                },
+                "rulings": [
+                    {
+                        "date": "2016-09-20",
+                        "text": "If you cast the card, you do so as part of the resolution of Torrential Gearhulk\u2019s triggered ability. You can\u2019t wait to cast it later in the turn. Timing restrictions (such as \u201cCast [this card] only during combat\u201d) still apply."
+                    },
+                    {
+                        "date": "2016-09-20",
+                        "text": "If you cast a card \u201cwithout paying its mana cost,\u201d you can\u2019t choose to cast it for any alternative costs, such as emerge costs. You can, however, pay additional costs. If the card has any mandatory additional costs, such as that of Incendiary Sabotage, you must pay those to cast the card."
+                    },
+                    {
+                        "date": "2016-09-20",
+                        "text": "If the card has {X} in its mana cost, you must choose 0 as the value of X when casting it without paying its mana cost."
+                    }
+                ],
+                "subtypes": [
+                    "Construct"
+                ],
+                "supertypes": [],
+                "text": "Flash\nWhen Torrential Gearhulk enters the battlefield, you may cast target instant card from your graveyard without paying its mana cost. If that spell would be put into your graveyard this turn, exile it instead.",
+                "toughness": "6",
+                "type": "Artifact Creature \u2014 Construct",
+                "types": [
+                    "Artifact",
+                    "Creature"
+                ]
+            }
+        ]
+    },
+    "meta": {
+        "date": "2021-10-28",
+        "version": "5.1.0+20211028"
+    }
+}

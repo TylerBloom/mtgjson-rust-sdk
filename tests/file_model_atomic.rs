@@ -15,7 +15,25 @@ mod tests {
 
     #[test]
     fn load_single_card() {
-        let data_path = get_data_file( "SingleCard.json" );
+        let data_path = get_data_file( "SingleSimpleCreature.json" );
+        println!( "{}", data_path );
+        let file_data = fs::read_to_string( data_path ).expect("Data not found.");
+        let single_card: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
+        println!( "{}", serde_json::to_string(single_card.get("Grizzly Bears").unwrap()).unwrap() );
+    }
+
+    #[test]
+    fn reload_single_card() {
+        let data_path = get_data_file( "SingleSimpleCreature.json" );
+        println!( "{}", data_path );
+        let file_data = fs::read_to_string( data_path ).expect("Data not found.");
+        let single_card: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
+        let single_card_again: Atomics = serde_json::from_str( &serde_json::to_string(&single_card).unwrap() ).expect("Data could not be parsed.");
+    }
+
+    #[test]
+    fn load_single_spell() {
+        let data_path = get_data_file( "SingleSpell.json" );
         println!( "{}", data_path );
         let file_data = fs::read_to_string( data_path ).expect("Data not found.");
         let single_card: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
@@ -23,12 +41,21 @@ mod tests {
     }
 
     #[test]
-    fn reload_single_card() {
-        let data_path = get_data_file( "SingleCard.json" );
+    fn load_single_creature() {
+        let data_path = get_data_file( "SingleCreature.json" );
         println!( "{}", data_path );
         let file_data = fs::read_to_string( data_path ).expect("Data not found.");
         let single_card: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
-        let single_card_again: Atomics = serde_json::from_str( &serde_json::to_string(&single_card).unwrap() ).expect("Data could not be parsed.");
+        println!( "{}", serde_json::to_string(single_card.get("Torrential Gearhulk").unwrap()).unwrap() );
+    }
+
+    #[test]
+    fn load_single_dfc() {
+        let data_path = get_data_file( "SingleDFC.json" );
+        println!( "{}", data_path );
+        let file_data = fs::read_to_string( data_path ).expect("Data not found.");
+        let single_card: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
+        println!( "{}", serde_json::to_string(single_card.get("Delver of Secrets // Insectile Aberration").unwrap()).unwrap() );
     }
     
     #[test]

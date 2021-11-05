@@ -1,0 +1,107 @@
+{
+    "data": {
+        "Grizzly Bears": [
+            {
+                "colorIdentity": [
+                    "G"
+                ],
+                "colors": [
+                    "G"
+                ],
+                "convertedManaCost": 2.0,
+                "edhrecRank": 5586,
+                "foreignData": [
+                    {
+                        "language": "German",
+                        "name": "Grizzlyb\u00e4ren",
+                        "type": "Kreatur \u2014 B\u00e4r"
+                    },
+                    {
+                        "language": "Spanish",
+                        "name": "Osos pardos"
+                    },
+                    {
+                        "language": "French",
+                        "name": "Grizzlis"
+                    },
+                    {
+                        "language": "Italian",
+                        "name": "Orso Grizzly"
+                    },
+                    {
+                        "language": "Japanese",
+                        "name": "\u7070\u8272\u718a"
+                    },
+                    {
+                        "language": "Portuguese (Brazil)",
+                        "name": "Ursos Cinzentos"
+                    }
+                ],
+                "identifiers": {
+                    "scryfallOracleId": "14c8f55d-d177-4c25-a931-ebeb9e6062a0"
+                },
+                "layout": "normal",
+                "legalities": {
+                    "commander": "Legal",
+                    "duel": "Legal",
+                    "gladiator": "Legal",
+                    "historic": "Legal",
+                    "historicbrawl": "Legal",
+                    "legacy": "Legal",
+                    "modern": "Legal",
+                    "pauper": "Legal",
+                    "paupercommander": "Legal",
+                    "penny": "Legal",
+                    "premodern": "Legal",
+                    "vintage": "Legal"
+                },
+                "manaCost": "{1}{G}",
+                "manaValue": 2.0,
+                "name": "Grizzly Bears",
+                "power": "2",
+                "printings": [
+                    "10E",
+                    "2ED",
+                    "3ED",
+                    "4BB",
+                    "4ED",
+                    "5ED",
+                    "6ED",
+                    "7ED",
+                    "8ED",
+                    "9ED",
+                    "CED",
+                    "CEI",
+                    "FBB",
+                    "ITP",
+                    "J21",
+                    "LEA",
+                    "LEB",
+                    "POR",
+                    "RQS",
+                    "S99",
+                    "SUM"
+                ],
+                "purchaseUrls": {
+                    "cardKingdom": "https://mtgjson.com/links/f8ca4cb394506db7",
+                    "cardmarket": "https://mtgjson.com/links/a0762e90bb253fec",
+                    "tcgplayer": "https://mtgjson.com/links/0df3965aea51e633"
+                },
+                "rulings": [],
+                "subtypes": [
+                    "Bear"
+                ],
+                "supertypes": [],
+                "toughness": "2",
+                "type": "Creature \u2014 Bear",
+                "types": [
+                    "Creature"
+                ]
+            }
+        ]
+    },
+    "meta": {
+        "date": "2021-10-28",
+        "version": "5.1.0+20211028"
+    }
+}

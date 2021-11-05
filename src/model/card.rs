@@ -13,6 +13,7 @@ use super::purchase_urls::PurchaseURLs;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
+#[serde_as]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct CardFace {
     uuid: Option<String>,
@@ -34,7 +35,7 @@ pub struct CardFace {
     foreignData: Option<Vec<ForeignData>>,
     frameEffects: Option<Vec<String>>,
     frameVersion: Option<String>,
-    hand: Option<i32>,
+    hand: Option<String>,
     hasAlternativeDeckLimit: Option<bool>,
     hasContentWarning: Option<bool>,
     hasFoil: Option<bool>,
@@ -54,9 +55,9 @@ pub struct CardFace {
     isFoil: Option<bool>,
     keywords: Option<Vec<String>>,
     layout: String,
-    legalities: Legalities,
+    legalities: Option<Legalities>,
     leadershipSkills: Option<LeadershipSkills>,
-    life: Option<i32>,
+    life: Option<String>,
     loyalty: Option<String>,
     manaCost: Option<String>,
     name: String,
@@ -86,6 +87,7 @@ pub struct CardFace {
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
+#[serde(transparent)]
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Card {
     faces: Vec<CardFace>,

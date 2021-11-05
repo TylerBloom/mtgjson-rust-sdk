@@ -5,10 +5,10 @@ use serde_with::serde_as;
 use super::card::Card;
 use super::meta::Meta;
 
-#[serde_as]
+//#[serde_as]
 #[derive(Serialize, Deserialize)]
 pub struct Atomics {
-    // #[serde_as(as = "HashMap<String, CardFace>")]
+    //#[serde_as(as = "HashMap<String, Card>")]
     data: HashMap<String, Card>,
     meta: Meta,
 }
