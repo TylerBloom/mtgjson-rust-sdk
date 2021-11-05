@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
-use serde_with::{serde_as, DisplayFromStr, skip_serializing_none};
+use serde_with::{serde_as, skip_serializing_none};
 
-use crate::utils::number_deserializer::deserialize_number_from_string;
+// This might be used in the future
+// use crate::utils::number_deserializer::deserialize_number_from_string;
 
 use super::ruling::Ruling;
 use super::foreign_data::ForeignData;
@@ -12,9 +13,8 @@ use super::purchase_urls::PurchaseURLs;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[serde_as]
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Card {
+pub struct CardFace {
     uuid: Option<String>,
     artist: Option<String>,
     asciiName: Option<String>,
@@ -57,7 +57,7 @@ pub struct Card {
     legalities: Legalities,
     leadershipSkills: Option<LeadershipSkills>,
     life: Option<i32>,
-    loyalty: Option<i32>,
+    loyalty: Option<String>,
     manaCost: Option<String>,
     name: String,
     number: Option<String>,
@@ -66,9 +66,7 @@ pub struct Card {
     originalText: Option<String>,
     originalType: Option<String>,
     purchaseUrls: Option<PurchaseURLs>,
-    #[serde(default)]
-    //#[serde(deserialize_with = "deserialize_number_from_string")]
-    power: Option<i32>,
+    power: Option<String>,
     printings: Option<Vec<String>>,
     promoTypes: Option<Vec<String>>,
     rarity: Option<String>,
@@ -79,19 +77,40 @@ pub struct Card {
     subtypes: Vec<String>,
     supertypes: Vec<String>,
     text: Option<String>,
-    toughness: Option<i32>,
+    toughness: Option<String>,
     types: Vec<String>,
     variations: Option<Vec<String>>,
     watermark: Option<Vec<String>>,
 }
 
-impl ToString for Card {
+
+#[allow(non_snake_case)]
+#[skip_serializing_none]
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Card {
+    faces: Vec<CardFace>,
+}
+
+impl ToString for CardFace {
     fn to_string( &self ) -> String {
         let mut digest: String = self.name.clone();
         digest += "\n";
         if self.text.is_some() {
             digest += &self.text.clone().unwrap().clone();
         }
+        digest
+    }
+}
+
+impl ToString for Card {
+    fn to_string( &self ) -> String {
+        let mut digest: String = String::from("Front Face: ");
+        digest += &self.faces[0].name.clone();
+        if self.faces.len() == 2{
+            digest += "Back Face: ";
+            digest += &self.faces[1].text.clone().unwrap().clone();
+        }
+        digest += "\n";
         digest
     }
 }
