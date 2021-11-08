@@ -5,7 +5,7 @@ mod tests {
     use std::env;
     use serde_json;
 
-    use mtgjson::model::atomics::Atomics;
+    use mtgjson::mtgjson::atomics::Atomics;
     
     fn get_data_file( name: &str ) -> String {
         let mut digest = env::var("CARGO_MANIFEST_DIR").expect("Project home dir not set.");
@@ -60,7 +60,7 @@ mod tests {
     
     #[test]
     fn loads_all_cards() {
-        let data_path = get_data_file( "PrettyCards.json" );
+        let data_path = get_data_file( "AtomicCards.json" );
         println!( "{}", data_path );
         let file_data = fs::read_to_string( data_path ).expect("Data not found.");
         let all_atomics: Atomics = serde_json::from_str( &file_data ).expect("Data could not be parsed.");
