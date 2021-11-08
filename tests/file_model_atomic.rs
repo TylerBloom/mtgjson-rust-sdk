@@ -5,7 +5,7 @@ mod tests {
     use std::env;
     use serde_json;
 
-    use mtgjson::model::atomics::Atomics;
+    use mtgjson::mtgjson::atomics::Atomics;
     
     fn get_data_file( name: &str ) -> String {
         let mut digest = env::var("CARGO_MANIFEST_DIR").expect("Project home dir not set.");

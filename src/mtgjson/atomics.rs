@@ -1,20 +1,17 @@
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
-use serde_with::serde_as;
 
-use super::card::Card;
+use super::card::AtomicCard;
 use super::meta::Meta;
 
-//#[serde_as]
 #[derive(Serialize, Deserialize)]
 pub struct Atomics {
-    //#[serde_as(as = "HashMap<String, Card>")]
-    data: HashMap<String, Card>,
+    data: HashMap<String, AtomicCard>,
     meta: Meta,
 }
 
 impl Atomics {
-    pub fn get( &self, name: &str ) -> Option<&Card> {
+    pub fn get( &self, name: &str ) -> Option<&AtomicCard> {
         match self.data.get( name ) {
             Some(c) => Some(&c),
             None => None

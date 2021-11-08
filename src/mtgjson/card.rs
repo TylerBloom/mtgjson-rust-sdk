@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use serde_with::{serde_as, skip_serializing_none};
+use serde_with::skip_serializing_none;
 
 // This might be used in the future
 // use crate::utils::number_deserializer::deserialize_number_from_string;
@@ -13,9 +13,8 @@ use super::purchase_urls::PurchaseURLs;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[serde_as]
 #[derive(Serialize, Deserialize, Debug)]
-pub struct CardFace {
+pub struct AtomicCardFace {
     uuid: Option<String>,
     artist: Option<String>,
     asciiName: Option<String>,
@@ -87,13 +86,13 @@ pub struct CardFace {
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[serde(transparent)]
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Card {
-    faces: Vec<CardFace>,
+#[serde(transparent)]
+pub struct AtomicCard {
+    faces: Vec<AtomicCardFace>,
 }
 
-impl ToString for CardFace {
+impl ToString for AtomicCardFace {
     fn to_string( &self ) -> String {
         let mut digest: String = self.name.clone();
         digest += "\n";
@@ -104,7 +103,7 @@ impl ToString for CardFace {
     }
 }
 
-impl ToString for Card {
+impl ToString for AtomicCard {
     fn to_string( &self ) -> String {
         let mut digest: String = String::from("Front Face: ");
         digest += &self.faces[0].name.clone();
