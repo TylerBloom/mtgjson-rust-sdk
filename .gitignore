@@ -1,3 +1,4 @@
 /target
 Cargo.lock
 tests/data/PrettyCards.json
+tests/data/AtomicCards.json
