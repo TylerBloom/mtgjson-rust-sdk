@@ -1,7 +1,10 @@
 [package]
 name = "mtgjson"
-version = "0.1.0"
-edition = "2018"
+version = "0.0.0"
+edition = "2021"
+license = "GPL-3.0"
+rust-version = "1.58.1"
+authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
