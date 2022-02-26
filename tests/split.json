@@ -1,0 +1,44 @@
+[
+    {
+        "colorIdentity": [
+            "U"
+        ],
+        "colors": [
+            "U"
+        ],
+        "faceName": "Commit",
+        "identifiers": {
+            "scryfallOracleId": "56fd8895-3be2-4591-86fa-87567d9cdc14"
+        },
+        "manaCost": "{3}{U}",
+        "name": "Commit // Memory",
+        "side": "a",
+        "subtypes": [],
+        "supertypes": [],
+        "text": "Put target spell or nonland permanent into its owner's library second from the top.",
+        "types": [
+            "Instant"
+        ]
+    },
+    {
+        "colorIdentity": [
+            "U"
+        ],
+        "colors": [
+            "U"
+        ],
+        "faceName": "Memory",
+        "identifiers": {
+            "scryfallOracleId": "56fd8895-3be2-4591-86fa-87567d9cdc14"
+        },
+        "manaCost": "{4}{U}{U}",
+        "name": "Commit // Memory",
+        "side": "b",
+        "subtypes": [],
+        "supertypes": [],
+        "text": "Aftermath (Cast this spell only from your graveyard. Then exile it.)\nEach player shuffles their hand and graveyard into their library, then draws seven cards.",
+        "types": [
+            "Sorcery"
+        ]
+    }
+]

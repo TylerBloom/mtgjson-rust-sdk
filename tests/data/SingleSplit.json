@@ -1,0 +1,357 @@
+{
+    "data": {
+				"Commit // Memory": [
+								{
+								"colorIdentity": [
+												"U"
+								],
+								"colors": [
+												"U"
+								],
+								"convertedManaCost": 10.0,
+								"faceConvertedManaCost": 4.0,
+								"faceManaValue": 4.0,
+								"faceName": "Commit",
+								"foreignData": [
+												{
+												"faceName": "Einpr\u00e4gen",
+												"language": "German",
+												"name": "Einpr\u00e4gen // Erinnern",
+												"text": "Lege einen Zauberspruch oder eine bleibende Karte deiner Wahl, die kein Land ist, als zweite Karte von oben in die Bibliothek seines bzw. ihres Besitzers.",
+												"type": "Spontanzauber"
+												},
+												{
+												"faceName": "Transferir",
+												"language": "Spanish",
+												"name": "Transferir // Recuerdo",
+												"text": "Pon el hechizo o permanente que no sea tierra objetivo en la biblioteca de su propietario en segundo lugar desde la parte superior.",
+												"type": "Instant\u00e1neo"
+												},
+												{
+												"faceName": "Graver",
+												"language": "French",
+												"name": "Graver // M\u00e9moire",
+												"text": "Mettez le sort cibl\u00e9 ou le permanent non-terrain cibl\u00e9 dans la biblioth\u00e8que de son propri\u00e9taire en deuxi\u00e8me position \u00e0 partir du dessus.",
+												"type": "\u00c9ph\u00e9m\u00e8re"
+												},
+												{
+												"faceName": "Scolpire",
+												"language": "Italian",
+												"name": "Scolpire // Memoria",
+												"text": "Metti una magia o un permanente non terra bersaglio nel grimorio del suo proprietario come seconda carta.",
+												"type": "Istantaneo"
+												},
+												{
+												"faceName": "\u6697\u8a18",
+												"language": "Japanese",
+												"name": "\u6697\u8a18 // \u8a18\u61b6",
+												"text": "\u546a\u6587\uff11\u3064\u304b\u571f\u5730\u3067\u306a\u3044\u30d1\u30fc\u30de\u30cd\u30f3\u30c8\uff11\u3064\u3092\u5bfe\u8c61\u3068\u3057\u3001\u305d\u308c\u3092\u30aa\u30fc\u30ca\u30fc\u306e\u30e9\u30a4\u30d6\u30e9\u30ea\u30fc\u306e\u4e00\u756a\u4e0a\u304b\u3089\uff12\u679a\u76ee\u306b\u7f6e\u304f\u3002",
+												"type": "\u30a4\u30f3\u30b9\u30bf\u30f3\u30c8"
+												},
+												{
+												"faceName": "\ud5cc\uc2e0",
+												"language": "Korean",
+												"name": "\ud5cc\uc2e0 // \uae30\uc5b5",
+												"text": "\uc8fc\ubb38 \ub610\ub294 \ub300\uc9c0\uac00 \uc544\ub2cc \uc9c0\uc18d\ubb3c\uc744 \ubaa9\ud45c\ub85c \uc815\ud55c\ub2e4. \uadf8 \ubaa9\ud45c\ub97c \uc18c\uc720\uc790\uc758 \uc11c\uace0 \ub9e8 \uc704\uc5d0\uc11c \ub450 \ubc88\uc9f8\uc5d0 \ub123\ub294\ub2e4.",
+												"type": "\uc21c\uac04\ub9c8\ubc95"
+												},
+												{
+												"faceName": "Gravar",
+												"language": "Portuguese (Brazil)",
+												"name": "Gravar // Mem\u00f3ria",
+												"text": "Coloque a m\u00e1gica ou a permanente alvo que n\u00e3o seja um terreno no grim\u00f3rio do seu dono na segunda posi\u00e7\u00e3o.",
+												"type": "M\u00e1gica Instant\u00e2nea"
+												},
+												{
+												"faceName": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c",
+												"language": "Russian",
+												"name": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c // \u0412 \u041f\u0430\u043c\u044f\u0442\u0438",
+												"text": "\u041f\u043e\u043b\u043e\u0436\u0438\u0442\u0435 \u0446\u0435\u043b\u0435\u0432\u043e\u0435 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0438\u043b\u0438 \u043d\u0435 \u044f\u0432\u043b\u044f\u044e\u0449\u0438\u0439\u0441\u044f \u0437\u0435\u043c\u043b\u0435\u0439 \u043f\u0435\u0440\u043c\u0430\u043d\u0435\u043d\u0442 \u0432 \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443 \u0435\u0433\u043e \u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0430 \u0432\u0442\u043e\u0440\u044b\u043c \u0441\u0432\u0435\u0440\u0445\u0443.",
+												"type": "\u041c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e\u0435 \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435"
+												},
+												{
+												"faceName": "\u5bc4\u6258",
+												"language": "Chinese Simplified",
+												"name": "\u5bc4\u6258 // \u8bb0\u5fc6",
+												"text": "\u5c06\u76ee\u6807\u5492\u8bed\u6216\u975e\u5730\u6c38\u4e45\u7269\u7f6e\u4e8e\u5176\u62e5\u6709\u8005\u7684\u724c\u5e93\u9876\u6570\u6765\u7b2c\u4e8c\u5f20\u7684\u4f4d\u7f6e\u3002",
+												"type": "\u77ac\u95f4"
+												},
+												{
+												"faceName": "\u5bc4\u8a17",
+												"language": "Chinese Traditional",
+												"name": "\u5bc4\u8a17 // \u8a18\u61b6",
+												"text": "\u5c07\u76ee\u6a19\u5492\u8a9e\u6216\u975e\u5730\u6c38\u4e45\u7269\u7f6e\u65bc\u5176\u64c1\u6709\u8005\u7684\u724c\u5eab\u9802\u6578\u4f86\u7b2c\u4e8c\u5f35\u7684\u4f4d\u7f6e\u3002",
+												"type": "\u77ac\u9593"
+												}
+								],
+								"identifiers": {
+												"scryfallOracleId": "56fd8895-3be2-4591-86fa-87567d9cdc14"
+								},
+								"layout": "aftermath",
+								"legalities": {
+												"commander": "Legal",
+												"duel": "Legal",
+												"gladiator": "Legal",
+												"historic": "Legal",
+												"historicbrawl": "Legal",
+												"legacy": "Legal",
+												"modern": "Legal",
+												"penny": "Legal",
+												"pioneer": "Legal",
+												"vintage": "Legal"
+								},
+								"manaCost": "{3}{U}",
+								"manaValue": 10.0,
+								"name": "Commit // Memory",
+								"printings": [
+												"AKH",
+												"AKR",
+												"MB1",
+												"PAKH"
+								],
+								"purchaseUrls": {},
+								"rulings": [
+												{
+												"date": "2017-04-18",
+												"text": "If a spell is put into its owner\u2019s library, it\u2019s removed from the stack and thus will not resolve. The spell isn\u2019t countered; it just no longer exists. This works against a spell that can\u2019t be countered."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If a copy of a spell or a token is put into its owner\u2019s library, it\u2019s moved there, then it will cease to exist as a state-based action."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Split cards with aftermath have a new frame treatment\u2014the half you can cast from your hand is oriented the same as other cards you\u2019d cast from your hand, while the half you can cast from your graveyard is a traditional split card half. This frame treatment is for your convenience and has no rules significance."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "All split cards have two card faces on a single card, and you put a split card onto the stack with only the half you\u2019re casting. The characteristics of the half of the card you didn\u2019t cast are ignored while the spell is on the stack. For example, if an effect prevents you from casting green spells, you can cast Destined of Destined // Lead, but not Lead."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Each split card is a single card. For example, if you discard one, you\u2019ve discarded one card, not two. If an effect counts the number of instant and sorcery cards in your graveyard, Destined // Lead counts once, not twice."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If the target\u2019s owner\u2019s library contains no cards, the target spell or permanent will be put into that player\u2019s library as the only card."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "While not on the stack, the characteristics of a split card are the combination of its two halves. For example, Destined // Lead is a green and black card, it is both an instant card and a sorcery card, and its converted mana cost is 6. This means that if an effect allows you to cast a card with converted mana cost 2 from your hand, you can\u2019t cast Destined. This is a change from the previous rules for split cards."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If you cast the first half of a split card with aftermath during your turn, you\u2019ll have priority immediately after it resolves. You can cast the half with aftermath from your graveyard before any player can take any other action if it\u2019s legal for you to do so."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If another effect allows you to cast a split card with aftermath from any zone other than a graveyard, you can\u2019t cast the half with aftermath."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If another effect allows you to cast a split card with aftermath from a graveyard, you may cast either half. If you cast the half that has aftermath, you\u2019ll exile the card if it would leave the stack."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "A spell with aftermath cast from a graveyard will always be exiled afterward, whether it resolves, it\u2019s countered, or it leaves the stack in some other way."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Each split card has two names. If an effect instructs you to choose a card name, you may choose one, but not both."
+												},
+												{
+												"date": "2017-07-14",
+												"text": "Once you\u2019ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can\u2019t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation."
+												}
+								],
+								"side": "a",
+								"subtypes": [],
+								"supertypes": [],
+								"text": "Put target spell or nonland permanent into its owner's library second from the top.",
+								"type": "Instant",
+								"types": [
+												"Instant"
+								]
+								},
+								{
+								"colorIdentity": [
+												"U"
+								],
+								"colors": [
+												"U"
+								],
+								"convertedManaCost": 10.0,
+								"faceConvertedManaCost": 6.0,
+								"faceManaValue": 6.0,
+								"faceName": "Memory",
+								"foreignData": [
+												{
+												"faceName": "Erinnern",
+												"language": "German",
+												"name": "Einpr\u00e4gen // Erinnern",
+												"text": "Nachhall (Wirke diesen Zauberspruch nur aus deinem Friedhof. Schicke ihn danach ins Exil.)\nJeder Spieler mischt die Karten auf seiner Hand und in seinem Friedhof in seine Bibliothek und zieht dann sieben Karten.",
+												"type": "Hexerei"
+												},
+												{
+												"faceName": "Recuerdo",
+												"language": "Spanish",
+												"name": "Transferir // Recuerdo",
+												"text": "Secuela. (Lanza este hechizo solo desde tu cementerio. Luego ex\u00edlialo.)\nCada jugador baraja su mano y cementerio en su biblioteca, luego roba siete cartas.",
+												"type": "Conjuro"
+												},
+												{
+												"faceName": "M\u00e9moire",
+												"language": "French",
+												"name": "Graver // M\u00e9moire",
+												"text": "R\u00e9percussion (Ne lancez ce sort que depuis votre cimeti\u00e8re. Exilez-le ensuite.)\nChaque joueur m\u00e9lange sa main et son cimeti\u00e8re avec sa biblioth\u00e8que et pioche ensuite sept cartes.",
+												"type": "Rituel"
+												},
+												{
+												"faceName": "Memoria",
+												"language": "Italian",
+												"name": "Scolpire // Memoria",
+												"text": "Conseguenze (Lancia questa magia solo dal tuo cimitero. Poi esiliala.)\nOgni giocatore rimescola la propria mano e il proprio cimitero nel proprio grimorio, poi pesca sette carte.",
+												"type": "Stregoneria"
+												},
+												{
+												"faceName": "\u8a18\u61b6",
+												"language": "Japanese",
+												"name": "\u6697\u8a18 // \u8a18\u61b6",
+												"text": "\u4f59\u6ce2\uff08\u3053\u306e\u546a\u6587\u306f\u3042\u306a\u305f\u306e\u5893\u5730\u304b\u3089\u306e\u307f\u5531\u3048\u3089\u308c\u308b\u3002\u305d\u306e\u5f8c\u3001\u3053\u308c\u3092\u8ffd\u653e\u3059\u308b\u3002\uff09\n\u5404\u30d7\u30ec\u30a4\u30e4\u30fc\u306f\u305d\u308c\u305e\u308c\u3001\u81ea\u5206\u306e\u624b\u672d\u3068\u5893\u5730\u3092\u81ea\u5206\u306e\u30e9\u30a4\u30d6\u30e9\u30ea\u30fc\u306b\u52a0\u3048\u3066\u5207\u308a\u76f4\u3057\u3001\u305d\u306e\u5f8c\u30ab\u30fc\u30c9\u3092\uff17\u679a\u5f15\u304f\u3002",
+												"type": "\u30bd\u30fc\u30b5\u30ea\u30fc"
+												},
+												{
+												"faceName": "\uae30\uc5b5",
+												"language": "Korean",
+												"name": "\ud5cc\uc2e0 // \uae30\uc5b5",
+												"text": "\uc5ec\ud30c (\ub2f9\uc2e0\uc758 \ubb34\ub364\uc5d0\uc11c\ub9cc \uc774 \uc8fc\ubb38\uc744 \ubc1c\ub3d9\ud560 \uc218 \uc788\ub2e4. \uadf8 \ud6c4, \uc774 \uce74\ub4dc\ub97c \ucd94\ubc29\ud55c\ub2e4.)\n\uac01 \ud50c\ub808\uc774\uc5b4\ub294 \uc790\uc2e0\uc758 \uc190\uacfc \ubb34\ub364\uc744 \uc11c\uace0\uc5d0 \uc11e\uc5b4 \ub123\uc740 \ud6c4 \uce74\ub4dc \uc77c\uacf1 \uc7a5\uc744 \ubf51\ub294\ub2e4.",
+												"type": "\uc9d1\uc911\ub9c8\ubc95"
+												},
+												{
+												"faceName": "Mem\u00f3ria",
+												"language": "Portuguese (Brazil)",
+												"name": "Gravar // Mem\u00f3ria",
+												"text": "Consequ\u00eancias (Conjure esta m\u00e1gica somente de seu cemit\u00e9rio. Depois, exile-a.)\nCada jogador embaralha a pr\u00f3pria m\u00e3o e cemit\u00e9rio em seu pr\u00f3prio grim\u00f3rio e depois compra sete cards.",
+												"type": "Feiti\u00e7o"
+												},
+												{
+												"faceName": "\u0412 \u041f\u0430\u043c\u044f\u0442\u0438",
+												"language": "Russian",
+												"name": "\u0421\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u044c // \u0412 \u041f\u0430\u043c\u044f\u0442\u0438",
+												"text": "\u041f\u043e\u0441\u043b\u0435\u0434\u0441\u0442\u0432\u0438\u044f (\u0420\u0430\u0437\u044b\u0433\u0440\u044b\u0432\u0430\u0439\u0442\u0435 \u044d\u0442\u043e \u0437\u0430\u043a\u043b\u0438\u043d\u0430\u043d\u0438\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0438\u0437 \u0432\u0430\u0448\u0435\u0433\u043e \u043a\u043b\u0430\u0434\u0431\u0438\u0449\u0430. \u0417\u0430\u0442\u0435\u043c \u0438\u0437\u0433\u043e\u043d\u0438\u0442\u0435 \u0435\u0433\u043e.)\n\u041a\u0430\u0436\u0434\u044b\u0439 \u0438\u0433\u0440\u043e\u043a \u0432\u0442\u0430\u0441\u043e\u0432\u044b\u0432\u0430\u0435\u0442 \u0441\u0432\u043e\u0438 \u0440\u0443\u043a\u0443 \u0438 \u043a\u043b\u0430\u0434\u0431\u0438\u0449\u0435 \u0432 \u0441\u0432\u043e\u044e \u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0443, \u0437\u0430\u0442\u0435\u043c \u0431\u0435\u0440\u0435\u0442 \u0441\u0435\u043c\u044c \u043a\u0430\u0440\u0442.",
+												"type": "\u0412\u043e\u043b\u0448\u0435\u0431\u0441\u0442\u0432\u043e"
+												},
+												{
+												"faceName": "\u8bb0\u5fc6",
+												"language": "Chinese Simplified",
+												"name": "\u5bc4\u6258 // \u8bb0\u5fc6",
+												"text": "\u4f59\u54cd\uff08\u6b64\u5492\u8bed\u53ea\u80fd\u4ece\u4f60\u7684\u575f\u5893\u573a\u4e2d\u65bd\u653e\u3002\u7136\u540e\u5c06\u5b83\u653e\u9010\u3002\uff09\n\u6bcf\u4f4d\u724c\u624b\u5c06\u5176\u624b\u724c\u4e0e\u575f\u5893\u573a\u6d17\u5165\u5176\u724c\u5e93\uff0c\u7136\u540e\u5404\u6293\u4e03\u5f20\u724c\u3002",
+												"type": "\u6cd5\u672f"
+												},
+												{
+												"faceName": "\u8a18\u61b6",
+												"language": "Chinese Traditional",
+												"name": "\u5bc4\u8a17 // \u8a18\u61b6",
+												"text": "\u9918\u97ff\uff08\u6b64\u5492\u8a9e\u53ea\u80fd\u5f9e\u4f60\u7684\u58b3\u5893\u5834\u4e2d\u65bd\u653e\u3002\u7136\u5f8c\u5c07\u5b83\u653e\u9010\u3002\uff09\n\u6bcf\u4f4d\u73a9\u5bb6\u5c07\u5176\u624b\u724c\u8207\u58b3\u5893\u5834\u6d17\u5165\u5176\u724c\u5eab\uff0c\u7136\u5f8c\u5404\u62bd\u4e03\u5f35\u724c\u3002",
+												"type": "\u5deb\u8853"
+												}
+								],
+								"identifiers": {
+												"scryfallOracleId": "56fd8895-3be2-4591-86fa-87567d9cdc14"
+								},
+								"keywords": [
+												"Aftermath"
+								],
+								"layout": "aftermath",
+								"legalities": {
+												"commander": "Legal",
+												"duel": "Legal",
+												"gladiator": "Legal",
+												"historic": "Legal",
+												"historicbrawl": "Legal",
+												"legacy": "Legal",
+												"modern": "Legal",
+												"penny": "Legal",
+												"pioneer": "Legal",
+												"vintage": "Legal"
+								},
+								"manaCost": "{4}{U}{U}",
+								"manaValue": 10.0,
+								"name": "Commit // Memory",
+								"printings": [
+												"AKH",
+												"AKR",
+												"MB1",
+												"PAKH"
+								],
+								"purchaseUrls": {},
+								"rulings": [
+												{
+												"date": "2017-04-18",
+												"text": "If a spell is put into its owner\u2019s library, it\u2019s removed from the stack and thus will not resolve. The spell isn\u2019t countered; it just no longer exists. This works against a spell that can\u2019t be countered."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If a copy of a spell or a token is put into its owner\u2019s library, it\u2019s moved there, then it will cease to exist as a state-based action."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Split cards with aftermath have a new frame treatment\u2014the half you can cast from your hand is oriented the same as other cards you\u2019d cast from your hand, while the half you can cast from your graveyard is a traditional split card half. This frame treatment is for your convenience and has no rules significance."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "All split cards have two card faces on a single card, and you put a split card onto the stack with only the half you\u2019re casting. The characteristics of the half of the card you didn\u2019t cast are ignored while the spell is on the stack. For example, if an effect prevents you from casting green spells, you can cast Destined of Destined // Lead, but not Lead."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Each split card is a single card. For example, if you discard one, you\u2019ve discarded one card, not two. If an effect counts the number of instant and sorcery cards in your graveyard, Destined // Lead counts once, not twice."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If the target\u2019s owner\u2019s library contains no cards, the target spell or permanent will be put into that player\u2019s library as the only card."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "While not on the stack, the characteristics of a split card are the combination of its two halves. For example, Destined // Lead is a green and black card, it is both an instant card and a sorcery card, and its converted mana cost is 6. This means that if an effect allows you to cast a card with converted mana cost 2 from your hand, you can\u2019t cast Destined. This is a change from the previous rules for split cards."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If you cast the first half of a split card with aftermath during your turn, you\u2019ll have priority immediately after it resolves. You can cast the half with aftermath from your graveyard before any player can take any other action if it\u2019s legal for you to do so."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If another effect allows you to cast a split card with aftermath from any zone other than a graveyard, you can\u2019t cast the half with aftermath."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "If another effect allows you to cast a split card with aftermath from a graveyard, you may cast either half. If you cast the half that has aftermath, you\u2019ll exile the card if it would leave the stack."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "A spell with aftermath cast from a graveyard will always be exiled afterward, whether it resolves, it\u2019s countered, or it leaves the stack in some other way."
+												},
+												{
+												"date": "2017-04-18",
+												"text": "Each split card has two names. If an effect instructs you to choose a card name, you may choose one, but not both."
+												},
+												{
+												"date": "2017-07-14",
+												"text": "Once you\u2019ve started to cast a spell with aftermath from your graveyard, the card is immediately moved to the stack. Opponents can\u2019t try to stop the ability by exiling the card with an effect such as that of Crook of Condemnation."
+												}
+								],
+								"side": "b",
+								"subtypes": [],
+								"supertypes": [],
+								"text": "Aftermath (Cast this spell only from your graveyard. Then exile it.)\nEach player shuffles their hand and graveyard into their library, then draws seven cards.",
+								"type": "Sorcery",
+								"types": [
+												"Sorcery"
+								]
+								}
+				]
+		},
+    "meta": {
+        "date": "2021-10-28",
+        "version": "5.1.0+20211028"
+    }
+}

@@ -1,0 +1,58 @@
+[
+    {
+        "colorIdentity": [
+            "U"
+        ],
+        "colors": [
+            "U"
+        ],
+        "faceName": "Delver of Secrets",
+        "identifiers": {
+            "scryfallOracleId": "edd531b9-f615-4399-8c8c-1c5e18c4acbf"
+        },
+        "layout": "transform",
+        "manaCost": "{U}",
+        "name": "Delver of Secrets // Insectile Aberration",
+        "power": "1",
+        "side": "a",
+        "subtypes": [
+            "Human",
+            "Wizard"
+        ],
+        "supertypes": [],
+        "text": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform Delver of Secrets.",
+        "toughness": "1",
+        "types": [
+            "Creature"
+        ]
+    },
+    {
+        "colorIdentity": [
+            "U"
+        ],
+        "colorIndicator": [
+            "U"
+        ],
+        "colors": [
+            "U"
+        ],
+        "faceName": "Insectile Aberration",
+        "identifiers": {
+            "scryfallOracleId": "edd531b9-f615-4399-8c8c-1c5e18c4acbf"
+        },
+        "layout": "transform",
+        "name": "Delver of Secrets // Insectile Aberration",
+        "power": "3",
+        "side": "b",
+        "subtypes": [
+            "Human",
+            "Insect"
+        ],
+        "supertypes": [],
+        "text": "Flying",
+        "toughness": "2",
+        "types": [
+            "Creature"
+        ]
+    }
+]
