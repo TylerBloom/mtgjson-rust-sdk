@@ -20,6 +20,13 @@ impl fmt::Display for ManaCost {
     }
 }
 
+impl<S: AsRef<String>> From<S> for ManaCost {
+{
+    fn from(s: S) -> Self {
+        todo!()
+    }
+}
+
 impl ManaCost {
     #[inline]
     fn to_annoted_string(&self) -> String {

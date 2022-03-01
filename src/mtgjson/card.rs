@@ -1,15 +1,16 @@
-use serde::{Deserialize, Serialize};
-use serde_with::skip_serializing_none;
+use super::foreign_data::ForeignData;
+use super::identifiers::Identifiers;
+use super::leadership_skills::LeadershipSkills;
+use super::legalities::Legalities;
+use super::purchase_urls::PurchaseURLs;
+use super::ruling::Ruling;
 
 // This might be used in the future
 // use crate::utils::number_deserializer::deserialize_number_from_string;
+use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
 
-use super::ruling::Ruling;
-use super::foreign_data::ForeignData;
-use super::leadership_skills::LeadershipSkills;
-use super::identifiers::Identifiers;
-use super::legalities::Legalities;
-use super::purchase_urls::PurchaseURLs;
+use core::fmt;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
@@ -53,13 +54,13 @@ pub struct AtomicCardFace {
     isTimeshifted: Option<bool>,
     isFoil: Option<bool>,
     keywords: Option<Vec<String>>,
-    layout: String,
+    pub layout: String,
     legalities: Option<Legalities>,
     leadershipSkills: Option<LeadershipSkills>,
     life: Option<String>,
     loyalty: Option<String>,
-    manaCost: Option<String>,
-    name: String,
+    pub manaCost: Option<String>,
+    pub name: String,
     number: Option<String>,
     otherFaceIds: Option<Vec<String>>,
     originalReleaseDate: Option<String>,
@@ -83,35 +84,36 @@ pub struct AtomicCardFace {
     watermark: Option<Vec<String>>,
 }
 
-
 #[allow(non_snake_case)]
 #[skip_serializing_none]
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(transparent)]
 pub struct AtomicCard {
-    faces: Vec<AtomicCardFace>,
+    pub faces: Vec<AtomicCardFace>,
 }
 
-impl ToString for AtomicCardFace {
-    fn to_string( &self ) -> String {
+impl AtomicCard {}
+
+impl fmt::Display for AtomicCardFace {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut digest: String = self.name.clone();
         digest += "\n";
         if self.text.is_some() {
-            digest += &self.text.clone().unwrap().clone();
+            digest += &self.text.as_ref().unwrap();
         }
-        digest
+        write!(f, "{}", digest)
     }
 }
 
-impl ToString for AtomicCard {
-    fn to_string( &self ) -> String {
+impl fmt::Display for AtomicCard {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         let mut digest: String = String::from("Front Face: ");
-        digest += &self.faces[0].name.clone();
-        if self.faces.len() == 2{
+        digest += &self.faces[0].name;
+        if self.faces.len() == 2 {
             digest += "Back Face: ";
-            digest += &self.faces[1].text.clone().unwrap().clone();
+            digest += &self.faces[1].name;
         }
         digest += "\n";
-        digest
+        write!(f, "{}", digest)
     }
 }
