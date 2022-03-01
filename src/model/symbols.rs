@@ -1,6 +1,8 @@
 use std::cmp::max;
 use std::fmt;
 
+use serde::{Deserialize, Serialize};
+
 pub trait AsManaSymbol
 where
     Self: fmt::Display,
@@ -13,7 +15,7 @@ where
     fn mana_value(&self) -> u8;
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Hash)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[non_exhaustive]
 pub enum BaseManaSymbol {
     White,
@@ -27,24 +29,24 @@ pub enum BaseManaSymbol {
     Snow,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Hash)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct HybridManaSymbol {
     left: BaseManaSymbol,
     right: BaseManaSymbol,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Hash)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum BaseOrHybridSymbol {
     Base(BaseManaSymbol),
     Hybrid(HybridManaSymbol),
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Hash)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct PhyrexianManaSymbol {
     symbol: BaseOrHybridSymbol,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Hash)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[non_exhaustive]
 pub enum ManaSymbol {
     BaseSymbol(BaseManaSymbol),

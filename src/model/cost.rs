@@ -3,7 +3,9 @@ use std::fmt;
 use super::symbols::AsManaSymbol;
 pub use super::symbols::ManaSymbol;
 
-#[derive(Clone, Debug, PartialEq, Hash)]
+use serde::{Deserialize, Serialize};
+
+#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
 pub struct ManaCost {
     pub cost: Vec<ManaSymbol>,
 }
