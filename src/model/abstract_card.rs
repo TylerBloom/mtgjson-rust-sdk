@@ -9,22 +9,19 @@ pub struct AbstractCard {
     back_face: Option<CardFace>,
 }
 
-impl<C> From<C> for AbstractCard
-where
-    C: AsRef<AtomicCard>,
+impl From<&AtomicCard> for AbstractCard
 {
-    fn from(card: C) -> Self {
-        let ref_card = card.as_ref();
-        let mut front_face = CardFace::from(ref_card.faces[0]);
+    fn from(card: &AtomicCard) -> Self {
+        let mut front_face = CardFace::from(&card.faces[0]);
         let mut back_face: Option<CardFace> = None;
-        if ref_card.faces.len() {
-            match ref_card.faces[0].layout.as_str() {
+        if card.faces.len() == 2 {
+            match card.faces[0].layout.as_str() {
                 "adventure" | "aftermath" | "flip" | "split" => {
-                    let bottom_half = CardFace::from(ref_card.faces[1]);
-                    front_face.add_bottom_half(BottomHalf);
+                    let bottom_half = CardFace::from(&card.faces[1]);
+                    front_face.add_bottom_half(bottom_half);
                 }
                 _ => {
-                    back_face = Some(CardFace::from(ref_card.faces[1]));
+                    back_face = Some(CardFace::from(&card.faces[1]));
                 }
             };
         }
