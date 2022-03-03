@@ -15,10 +15,23 @@ where
 {
     fn from(card: C) -> Self {
         let ref_card = card.as_ref();
-        let has_bottom_half = match ref_card.faces[0].layout.as_str() {
-            "adventure" | "aftermath" | "flip" | "split" => true,
-            _ => false,
-        };
-        todo!()
+        let mut front_face = CardFace::from(ref_card.faces[0]);
+        let mut back_face: Option<CardFace> = None;
+        if ref_card.faces.len() {
+            match ref_card.faces[0].layout.as_str() {
+                "adventure" | "aftermath" | "flip" | "split" => {
+                    let bottom_half = CardFace::from(ref_card.faces[1]);
+                    front_face.add_bottom_half(BottomHalf);
+                }
+                _ => {
+                    back_face = Some(CardFace::from(ref_card.faces[1]));
+                }
+            };
+        }
+        
+        AbstractCard {
+            front_face,
+            back_face,
+        }
     }
 }
