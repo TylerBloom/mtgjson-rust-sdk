@@ -6,7 +6,7 @@ use super::meta::Meta;
 
 #[derive(Serialize, Deserialize)]
 pub struct Atomics {
-    data: HashMap<String, AtomicCard>,
+    pub data: HashMap<String, AtomicCard>,
     meta: Meta,
 }
 

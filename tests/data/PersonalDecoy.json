@@ -1,0 +1,67 @@
+{
+    "data": {
+        "Personal Decoy": [
+            {
+                "colorIdentity": [
+                    "U",
+                    "W"
+                ],
+                "colors": [
+                    "U",
+                    "W"
+                ],
+                "convertedManaCost": 7.0,
+                "foreignData": [],
+                "identifiers": {
+                    "scryfallOracleId": "f2134b18-6f6e-44a6-8830-11326279e324"
+                },
+                "layout": "normal",
+                "leadershipSkills": {
+                    "brawl": false,
+                    "commander": false,
+                    "oathbreaker": true
+                },
+                "legalities": {},
+                "loyalty": "*",
+                "manaCost": "{5}{W}{U}",
+                "manaValue": 7.0,
+                "name": "Personal Decoy",
+                "printings": [
+                    "CMB1",
+                    "CMB2"
+                ],
+                "purchaseUrls": {
+                    "cardKingdom": "https://mtgjson.com/links/5a95a084e99b9c0b",
+                    "tcgplayer": "https://mtgjson.com/links/aae907fe4c6d1b4c"
+                },
+                "rulings": [
+                    {
+                        "date": "2019-11-12",
+                        "text": "Once Personal Decoy has entered the battlefield, there\u2019s no relation between its loyalty and your life."
+                    },
+                    {
+                        "date": "2019-11-12",
+                        "text": "Creatures can still attack Personal Decoy, even though they can\u2019t attack you."
+                    },
+                    {
+                        "date": "2019-11-12",
+                        "text": "Unlike most planeswalkers, Personal Decoy isn\u2019t legendary. You can control two or more at once."
+                    }
+                ],
+                "subtypes": [
+                    "Duck"
+                ],
+                "supertypes": [],
+                "text": "Personal Decoy enters the battlefield with a number of loyalty counters on it equal to your life total. If it would leave the battlefield, exile it instead of putting it anywhere else. You can't be attacked.\n[+1]: You gain 1 life.\n[\u22124]: Draw a card.",
+                "type": "Planeswalker \u2014 Duck",
+                "types": [
+                    "Planeswalker"
+                ]
+            }
+        ]
+		},
+    "meta": {
+        "date": "2021-10-28",
+        "version": "5.1.0+20211028"
+    }
+}

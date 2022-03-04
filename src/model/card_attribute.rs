@@ -49,19 +49,20 @@ pub struct ColorIndicator {
 }
 
 #[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
-pub struct Loyalty {
-    loyalty: u8,
+pub enum Loyalty {
+    Known(i8),
+    CDA(String),
 }
 
 #[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
 pub enum Power {
-    Known(u8),
+    Known(i8),
     CDA(String),
 }
 
 #[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
 pub enum Toughness {
-    Known(u8),
+    Known(i8),
     CDA(String),
 }
 
@@ -144,14 +145,72 @@ impl From<&AtomicCardFace> for AttributeMap {
                 AttributeInstance::ColorIndicator(indicator),
             );
         }
-        /*
-            ColorIndicator(ColorIndicator),
-            Loyalty(Loyalty),
-            PowerToughness(PowerToughness),
-            BottomHalf(BottomHalf),
-            LifeModifier(LifeModifier),
-            HandModifier(HandModifier),
-        */
-        todo!()
+        if let Some(l) = &face.loyalty {
+            let loyalty = Loyalty::from(l.as_str());
+            digest.insert(
+                AttributeType::Loyalty,
+                AttributeInstance::Loyalty(loyalty),
+            );
+        }
+        if let Some(p) = &face.power {
+            let power = Power::from(p.as_str());
+            if let Some(t) = &face.toughness {
+                let toughness = Toughness::from(t.as_str());
+                let pt = PowerToughness { power, toughness };
+                digest.insert(
+                    AttributeType::PowerToughness,
+                    AttributeInstance::PowerToughness(pt),
+                );
+            }
+        }
+        if let Some(l) = &face.life {
+            let life = LifeModifier {
+                modifier: l.parse::<i8>().unwrap(),
+            };
+            digest.insert(
+                AttributeType::LifeModifier,
+                AttributeInstance::LifeModifier(life),
+            );
+        }
+        if let Some(h) = &face.hand {
+            let hand = HandModifier {
+                modifier: h.parse::<i8>().unwrap(),
+            };
+            digest.insert(
+                AttributeType::HandModifier,
+                AttributeInstance::HandModifier(hand),
+            );
+        }
+        digest
+    }
+}
+
+impl From<&str> for Loyalty {
+    fn from(l: &str) -> Self {
+        if let Ok(loyalty) = l.parse::<i8>() {
+            Loyalty::Known(loyalty)
+        } else {
+            Loyalty::CDA(l.to_string())
+        }
+    }
+}
+
+impl From<&str> for Power {
+    fn from(p: &str) -> Self {
+        if let Ok(power) = p.parse::<i8>() {
+            Power::Known(power)
+        } else {
+            Power::CDA(p.to_string())
+        }
+    }
+}
+
+impl From<&str> for Toughness {
+    fn from(t: &str) -> Self {
+        if let Ok(toughness) = t.parse::<i8>() {
+            Toughness::Known(toughness)
+        } else {
+            Toughness::CDA(t.to_string())
+        }
     }
 }

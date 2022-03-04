@@ -22,7 +22,8 @@ impl fmt::Display for ManaCost {
 
 impl From<String> for ManaCost {
     fn from(s: String) -> Self {
-        todo!()
+        let cost = Vec::new();
+        ManaCost { cost }
     }
 }
 

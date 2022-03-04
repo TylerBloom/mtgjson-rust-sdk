@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests {
+    use mtgjson::model::abstract_card::AbstractCard;
     use serde_json;
     use std::env;
     use std::fs;
@@ -10,6 +11,19 @@ mod tests {
         let mut digest = env::var("CARGO_MANIFEST_DIR").expect("Project home dir not set.");
         digest += &format!("/tests/data/{}", name);
         digest
+    }
+
+    #[test]
+    fn load_all_cards() {
+        let data_path = get_data_file("AtomicCards.json");
+        println!("{}", data_path);
+        let file_data = fs::read_to_string(data_path).expect("Data not found.");
+        let all_cards: Atomics =
+            serde_json::from_str(&file_data).expect("Data could not be parsed.");
+        for (n,c) in all_cards.data {
+            println!("Converting {}", n);
+            let _ab = AbstractCard::from(&c);
+        }
     }
 
     #[test]
