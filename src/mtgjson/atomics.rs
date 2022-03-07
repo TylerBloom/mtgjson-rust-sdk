@@ -1,5 +1,5 @@
-use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
 
 use super::card::AtomicCard;
 use super::meta::Meta;
@@ -11,11 +11,10 @@ pub struct Atomics {
 }
 
 impl Atomics {
-    pub fn get( &self, name: &str ) -> Option<&AtomicCard> {
-        match self.data.get( name ) {
-            Some(c) => Some(&c),
-            None => None
+    pub fn get(&self, name: &str) -> Option<AtomicCard> {
+        match self.data.get(name) {
+            Some(c) => Some(c.clone()),
+            None => None,
         }
     }
 }
-

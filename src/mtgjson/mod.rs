@@ -1,9 +1,9 @@
-pub mod leadership_skills;
+pub mod atomics;
+pub mod card;
 pub mod foreign_data;
 pub mod identifiers;
+pub mod leadership_skills;
 pub mod legalities;
+pub mod meta;
 pub mod purchase_urls;
 pub mod ruling;
-pub mod card;
-pub mod atomics;
-pub mod meta;

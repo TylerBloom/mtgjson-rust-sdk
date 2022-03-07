@@ -1,4 +1,2 @@
-
-#[derive(PartialEq,Eq,Hash,Clone)]
-pub struct Deck {
-}
+#[derive(PartialEq, Eq, Hash, Clone)]
+pub struct Deck {}

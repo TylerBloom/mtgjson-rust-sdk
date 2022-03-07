@@ -14,7 +14,7 @@ use core::fmt;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct AtomicCardFace {
     uuid: Option<String>,
     artist: Option<String>,
@@ -86,13 +86,17 @@ pub struct AtomicCardFace {
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(transparent)]
 pub struct AtomicCard {
     pub faces: Vec<AtomicCardFace>,
 }
 
-impl AtomicCard {}
+impl AtomicCard {
+    pub fn get_names(&self) -> Vec<String> {
+        todo!()
+    }
+}
 
 impl fmt::Display for AtomicCardFace {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

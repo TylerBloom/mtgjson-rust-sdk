@@ -34,7 +34,7 @@ impl FromStr for Legality {
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Legalities {
     pub brawl: Option<String>,
     pub duel: Option<String>,

@@ -3,7 +3,7 @@ use serde_with::skip_serializing_none;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct PurchaseURLs {
     pub card_kingdom: Option<String>,
     pub card_kingdom_foil: Option<String>,

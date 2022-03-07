@@ -9,8 +9,7 @@ pub struct AbstractCard {
     back_face: Option<CardFace>,
 }
 
-impl From<&AtomicCard> for AbstractCard
-{
+impl From<&AtomicCard> for AbstractCard {
     fn from(card: &AtomicCard) -> Self {
         let mut front_face = CardFace::from(&card.faces[0]);
         let mut back_face: Option<CardFace> = None;
@@ -25,7 +24,7 @@ impl From<&AtomicCard> for AbstractCard
                 }
             };
         }
-        
+
         AbstractCard {
             front_face,
             back_face,

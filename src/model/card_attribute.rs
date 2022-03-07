@@ -147,10 +147,7 @@ impl From<&AtomicCardFace> for AttributeMap {
         }
         if let Some(l) = &face.loyalty {
             let loyalty = Loyalty::from(l.as_str());
-            digest.insert(
-                AttributeType::Loyalty,
-                AttributeInstance::Loyalty(loyalty),
-            );
+            digest.insert(AttributeType::Loyalty, AttributeInstance::Loyalty(loyalty));
         }
         if let Some(p) = &face.power {
             let power = Power::from(p.as_str());

@@ -1,3 +1,3 @@
 pub mod model;
-pub mod utils;
 pub mod mtgjson;
+pub mod utils;

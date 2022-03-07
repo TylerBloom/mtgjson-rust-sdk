@@ -1,10 +1,10 @@
 #[cfg(test)]
 mod tests {
-    use mtgjson::model::abstract_card::AbstractCard;
     use serde_json;
     use std::env;
     use std::fs;
 
+    use mtgjson::model::{abstract_card::AbstractCard, atomics_lookup::AtomicCardLookup};
     use mtgjson::mtgjson::atomics::Atomics;
 
     fn get_data_file(name: &str) -> String {
@@ -20,39 +20,11 @@ mod tests {
         let file_data = fs::read_to_string(data_path).expect("Data not found.");
         let all_cards: Atomics =
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
-        for (n, c) in all_cards.data {
-            println!("Converting {}", n);
-            let _ab = AbstractCard::from(&c);
-        }
+        let lookup = AtomicCardLookup::from(all_cards);
     }
 
     #[test]
-    fn load_single_card() {
-        let data_path = get_data_file("SingleSimpleCreature.json");
-        println!("{}", data_path);
-        let file_data = fs::read_to_string(data_path).expect("Data not found.");
-        let single_card: Atomics =
-            serde_json::from_str(&file_data).expect("Data could not be parsed.");
-        println!(
-            "{}",
-            serde_json::to_string(single_card.get("Grizzly Bears").unwrap()).unwrap()
-        );
-    }
-
-    #[test]
-    fn reload_single_card() {
-        let data_path = get_data_file("SingleSimpleCreature.json");
-        println!("{}", data_path);
-        let file_data = fs::read_to_string(data_path).expect("Data not found.");
-        let single_card: Atomics =
-            serde_json::from_str(&file_data).expect("Data could not be parsed.");
-        let _single_card_again: Atomics =
-            serde_json::from_str(&serde_json::to_string(&single_card).unwrap())
-                .expect("Data could not be parsed.");
-    }
-
-    #[test]
-    fn load_single_spell() {
+    fn get_single_spell() {
         let data_path = get_data_file("SingleSpell.json");
         println!("{}", data_path);
         let file_data = fs::read_to_string(data_path).expect("Data not found.");
@@ -65,7 +37,7 @@ mod tests {
     }
 
     #[test]
-    fn load_single_creature() {
+    fn get_single_creature() {
         let data_path = get_data_file("SingleCreature.json");
         println!("{}", data_path);
         let file_data = fs::read_to_string(data_path).expect("Data not found.");
@@ -78,7 +50,7 @@ mod tests {
     }
 
     #[test]
-    fn load_single_dfc() {
+    fn get_single_dfc() {
         let data_path = get_data_file("SingleDFC.json");
         println!("{}", data_path);
         let file_data = fs::read_to_string(data_path).expect("Data not found.");
@@ -96,7 +68,7 @@ mod tests {
     }
 
     #[test]
-    fn load_single_split() {
+    fn get_single_split() {
         let data_path = get_data_file("SingleSplit.json");
         println!("{}", data_path);
         let file_data = fs::read_to_string(data_path).expect("Data not found.");
