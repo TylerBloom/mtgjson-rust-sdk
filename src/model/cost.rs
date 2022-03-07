@@ -1,9 +1,11 @@
-use std::fmt;
-
 use super::symbols::AsManaSymbol;
 pub use super::symbols::ManaSymbol;
 
+use lazy_static::lazy_static;
+use regex::Regex;
 use serde::{Deserialize, Serialize};
+
+use std::fmt;
 
 #[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
 pub struct ManaCost {
@@ -22,7 +24,13 @@ impl fmt::Display for ManaCost {
 
 impl From<String> for ManaCost {
     fn from(s: String) -> Self {
-        let cost = Vec::new();
+        lazy_static! {
+            static ref BRACE_RE: Regex = Regex::new(r"\{([^}]+)\}").unwrap();
+        };
+        let cost: Vec<ManaSymbol> = BRACE_RE
+            .captures_iter(&s)
+            .filter_map(|c| ManaSymbol::from_str(c.get(1).unwrap().as_str()))
+            .collect();
         ManaCost { cost }
     }
 }

@@ -1,7 +1,9 @@
+use lazy_static::lazy_static;
+use regex::Regex;
+use serde::{Deserialize, Serialize};
+
 use std::cmp::max;
 use std::fmt;
-
-use serde::{Deserialize, Serialize};
 
 pub trait AsManaSymbol
 where
@@ -13,6 +15,9 @@ where
     }
 
     fn mana_value(&self) -> u8;
+    fn from_str(s: &str) -> Option<Self>
+    where
+        Self: Sized;
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -84,6 +89,24 @@ impl AsManaSymbol for BaseManaSymbol {
             _ => 1,
         }
     }
+
+    fn from_str(c: &str) -> Option<Self> {
+        let color = c.to_lowercase();
+        match color.as_str() {
+            "w" => Some(BaseManaSymbol::White),
+            "u" => Some(BaseManaSymbol::Blue),
+            "b" => Some(BaseManaSymbol::Black),
+            "r" => Some(BaseManaSymbol::Red),
+            "g" => Some(BaseManaSymbol::Green),
+            "c" => Some(BaseManaSymbol::Colorless),
+            "x" => Some(BaseManaSymbol::Variable),
+            "s" => Some(BaseManaSymbol::Snow),
+            _ => match color.parse::<u8>() {
+                Ok(num) => Some(BaseManaSymbol::Generic(num)),
+                _ => None,
+            },
+        }
+    }
 }
 
 impl fmt::Display for HybridManaSymbol {
@@ -97,6 +120,28 @@ impl AsManaSymbol for HybridManaSymbol {
     #[inline]
     fn mana_value(&self) -> u8 {
         max(self.left.mana_value(), self.right.mana_value())
+    }
+
+    #[inline]
+    fn from_str(s: &str) -> Option<Self> {
+        lazy_static! {
+            static ref HYBRID_RE: Regex = Regex::new(r"(\w+)/(\w+)").unwrap();
+        }
+        match HYBRID_RE.captures(s) {
+            Some(caps) => {
+                if caps.len() == 2 {
+                    let l = BaseManaSymbol::from_str(caps.get(1).unwrap().as_str());
+                    let r = BaseManaSymbol::from_str(caps.get(2).unwrap().as_str());
+                    match (l, r) {
+                        (Some(left), Some(right)) => Some(HybridManaSymbol { left, right }),
+                        _ => None,
+                    }
+                } else {
+                    None
+                }
+            }
+            None => None,
+        }
     }
 }
 
@@ -112,7 +157,18 @@ impl AsManaSymbol for BaseOrHybridSymbol {
     fn mana_value(&self) -> u8 {
         match self {
             BaseOrHybridSymbol::Base(s) => s.mana_value(),
-            BaseOrHybridSymbol::Hybrid(s) => s.mana_value()
+            BaseOrHybridSymbol::Hybrid(s) => s.mana_value(),
+        }
+    }
+
+    #[inline]
+    fn from_str(s: &str) -> Option<Self> {
+        if let Some(symbol) = BaseManaSymbol::from_str(s) {
+            Some(BaseOrHybridSymbol::Base(symbol))
+        } else if let Some(symbol) = HybridManaSymbol::from_str(s) {
+            Some(BaseOrHybridSymbol::Hybrid(symbol))
+        } else {
+            None
         }
     }
 }
@@ -128,6 +184,20 @@ impl AsManaSymbol for PhyrexianManaSymbol {
     #[inline]
     fn mana_value(&self) -> u8 {
         self.symbol.mana_value()
+    }
+
+    #[inline]
+    fn from_str(s: &str) -> Option<Self> {
+        lazy_static! {
+            static ref PHYREXIAN_RE: Regex = Regex::new(r"([^/]+)/P").unwrap();
+        }
+        match PHYREXIAN_RE.find(s) {
+            Some(text) => match BaseOrHybridSymbol::from_str(text.as_str()) {
+                Some(symbol) => Some(PhyrexianManaSymbol { symbol }),
+                None => None,
+            },
+            None => None,
+        }
     }
 }
 
@@ -145,6 +215,19 @@ impl AsManaSymbol for ManaSymbol {
             ManaSymbol::BaseSymbol(s) => s.mana_value(),
             ManaSymbol::HybridSymbol(s) => s.mana_value(),
             ManaSymbol::PhyrexianSymbol(s) => s.mana_value(),
+        }
+    }
+
+    #[inline]
+    fn from_str(s: &str) -> Option<Self> {
+        if let Some(m) = BaseManaSymbol::from_str(s) {
+            Some(ManaSymbol::BaseSymbol(m))
+        } else if let Some(m) = HybridManaSymbol::from_str(s) {
+            Some(ManaSymbol::HybridSymbol(m))
+        } else if let Some(m) = PhyrexianManaSymbol::from_str(s) {
+            Some(ManaSymbol::PhyrexianSymbol(m))
+        } else {
+            None
         }
     }
 }
