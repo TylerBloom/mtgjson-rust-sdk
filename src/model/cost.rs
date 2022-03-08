@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 
 use std::fmt;
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct ManaCost {
     pub cost: Vec<ManaSymbol>,
 }

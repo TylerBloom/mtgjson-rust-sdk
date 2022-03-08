@@ -35,7 +35,7 @@ mod tests {
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
         println!(
             "{}",
-            serde_json::to_string(single_card.get("Grizzly Bears").unwrap()).unwrap()
+            serde_json::to_string(&single_card.get("Grizzly Bears").unwrap()).unwrap()
         );
     }
 
@@ -60,7 +60,7 @@ mod tests {
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
         println!(
             "{}",
-            serde_json::to_string(single_card.get("Izzet Charm").unwrap()).unwrap()
+            serde_json::to_string(&single_card.get("Izzet Charm").unwrap()).unwrap()
         );
     }
 
@@ -73,7 +73,7 @@ mod tests {
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
         println!(
             "{}",
-            serde_json::to_string(single_card.get("Torrential Gearhulk").unwrap()).unwrap()
+            serde_json::to_string(&single_card.get("Torrential Gearhulk").unwrap()).unwrap()
         );
     }
 
@@ -87,7 +87,7 @@ mod tests {
         println!(
             "{}",
             serde_json::to_string(
-                single_card
+                &single_card
                     .get("Delver of Secrets // Insectile Aberration")
                     .unwrap()
             )
@@ -104,7 +104,7 @@ mod tests {
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
         println!(
             "{}",
-            serde_json::to_string(single_card.get("Commit // Memory").unwrap()).unwrap()
+            serde_json::to_string(&single_card.get("Commit // Memory").unwrap()).unwrap()
         );
     }
 

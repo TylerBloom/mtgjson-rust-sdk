@@ -1,4 +1,4 @@
-#[cfg(test)]
+//#[cfg(test)]
 mod tests {
     use serde_json;
     use std::env;
@@ -7,6 +7,7 @@ mod tests {
     use mtgjson::model::{abstract_card::AbstractCard, atomics_lookup::AtomicCardLookup};
     use mtgjson::mtgjson::atomics::Atomics;
 
+    /*
     fn get_data_file(name: &str) -> String {
         let mut digest = env::var("CARGO_MANIFEST_DIR").expect("Project home dir not set.");
         digest += &format!("/tests/data/{}", name);
@@ -79,6 +80,7 @@ mod tests {
             serde_json::to_string(single_card.get("Commit // Memory").unwrap()).unwrap()
         );
     }
+*/
 
     /* File is too large to move around
     #[test]
@@ -90,4 +92,5 @@ mod tests {
         println!( "{}", all_atomics.get("Izzet Charm").unwrap().to_string() );
     }
     */
+
 }

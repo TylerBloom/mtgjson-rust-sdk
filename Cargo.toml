@@ -10,6 +10,7 @@ authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 [dependencies]
 dashmap = { version = "5.0" }
 regex = { version = "1.5.4" }
+hashbag = { version = "0.1.4" }
 lazy_static = { version = "1.4.0" }
 uuid = { version = "0.8", features = ["v5"] }
 serde = { version = "1.0", features = ["derive"] }

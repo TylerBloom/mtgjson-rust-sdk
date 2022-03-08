@@ -3,7 +3,7 @@ use crate::mtgjson::card::AtomicCard;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Hash, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct AbstractCard {
     front_face: CardFace,
     back_face: Option<CardFace>,

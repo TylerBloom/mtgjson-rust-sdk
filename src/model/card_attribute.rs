@@ -5,6 +5,7 @@ use crate::mtgjson::card::AtomicCardFace;
 use serde::{Deserialize, Serialize};
 
 use std::collections::{HashMap, HashSet};
+use std::hash::{Hash, Hasher};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[non_exhaustive]
@@ -32,7 +33,7 @@ pub struct AttributeMap {
     attribs: HashMap<AttributeType, AttributeInstance>,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, PartialEq, Eq, Debug, Serialize, Deserialize)]
 pub struct CardFace {
     name: String,
     cost: ManaCost,
@@ -114,6 +115,15 @@ impl From<&AtomicCardFace> for CardFace {
             text,
             attribs,
         }
+    }
+}
+
+impl Hash for CardFace {
+    fn hash<H>(&self, state: &mut H)
+    where
+        H: Hasher,
+    {
+        let _ = &self.name.hash(state);
     }
 }
 
