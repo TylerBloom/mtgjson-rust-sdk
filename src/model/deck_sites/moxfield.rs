@@ -1,4 +1,4 @@
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 use std::{collections::HashMap, fmt};
 
@@ -20,19 +20,19 @@ impl fmt::Display for MoxfieldDeck {
         let mut digest = String::new();
         digest += "MAINBOARD:\n";
         for (name, card) in &self.mainboard {
-            digest += &format!("{} {}\n", card.quantity, name); 
+            digest += &format!("{} {}\n", card.quantity, name);
         }
         digest += "\nSIDEBOARD:\n";
         for (name, card) in &self.sideboard {
-            digest += &format!("{} {}\n", card.quantity, name); 
+            digest += &format!("{} {}\n", card.quantity, name);
         }
         digest += "\nMAYBEBOARD:\n";
         for (name, card) in &self.maybeboard {
-            digest += &format!("{} {}\n", card.quantity, name); 
+            digest += &format!("{} {}\n", card.quantity, name);
         }
         digest += "\nCOMMANDERS:";
         for (name, card) in &self.commanders {
-            digest += &format!("{} {}\n", card.quantity, name); 
+            digest += &format!("{} {}\n", card.quantity, name);
         }
         write!(f, "{}", digest)?;
         Ok(())

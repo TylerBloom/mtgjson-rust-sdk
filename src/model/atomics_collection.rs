@@ -1,16 +1,19 @@
 use std::error::Error;
 use std::fmt;
 
-use lazy_static::lazy_static;
-use regex::Regex;
 use hyper::{body, client::connect::HttpConnector, Client, Request};
 use hyper_tls::HttpsConnector;
+use lazy_static::lazy_static;
+use regex::Regex;
 
-use crate::{
-    utils::response_into_string,
-    mtgjson::{card::AtomicCard, atomics::Atomics}
+use super::{
+    abstract_card::AbstractCard, deck::Deck, deck_sites::moxfield::MoxfieldDeck,
+    disambiguator::CardNameDisambiguator,
 };
-use super::{abstract_card::AbstractCard, deck::Deck, deck_sites::moxfield::MoxfieldDeck, disambiguator::CardNameDisambiguator};
+use crate::{
+    mtgjson::{atomics::Atomics, card::AtomicCard},
+    utils::response_into_string,
+};
 
 pub struct AtomicCardCollection {
     disamb: CardNameDisambiguator,
@@ -34,9 +37,10 @@ impl AtomicCardCollection {
          * This will be the single deck-creation interface for strings.
          * If a special deck format needs to be supported, the `get` method can help.
          */
-        lazy_static!{
-            static ref DECK_RE: Regex = Regex::new(r"^([0-9]+)x?[\s^\n]+([a-zA-Z\,\ /-]+)$").unwrap();
-         }
+        lazy_static! {
+            static ref DECK_RE: Regex =
+                Regex::new(r"^([0-9]+)x?[\s^\n]+([a-zA-Z\,\ /-]+)$").unwrap();
+        }
         todo!()
     }
 
@@ -47,12 +51,13 @@ impl AtomicCardCollection {
          * Also, library users can scrape the site themselves and use the other interfaces to
          * create a deck if need be.
          */
-        lazy_static!{
+        lazy_static! {
             static ref SCRYFALL_URL_RE: Regex = Regex::new(r"^$").unwrap();
             static ref GOLDFISH_URL_RE: Regex = Regex::new(r"^$").unwrap();
-            static ref MOXFIELD_URL_RE: Regex = Regex::new(r"^https://www.moxfield.com/decks/(\w+)$").unwrap();
+            static ref MOXFIELD_URL_RE: Regex =
+                Regex::new(r"^https://www.moxfield.com/decks/([\w-]+)$").unwrap();
             static ref TAPPEDOUT_URL_RE: Regex = Regex::new(r"^$").unwrap();
-         }
+        }
         let https = HttpsConnector::new();
         let client = Client::builder().build::<_, hyper::Body>(https);
         if let Some(caps) = SCRYFALL_URL_RE.captures(&url) {
@@ -64,7 +69,12 @@ impl AtomicCardCollection {
             let mut deck = Deck::new();
             Ok(deck)
         } else if let Some(caps) = MOXFIELD_URL_RE.captures(&url) {
-            let raw_deck: MoxfieldDeck = self.get_moxfield_deck(&client, format!("https://api.moxfield.com/v2/decks/all/{}", &caps[0])).await?;
+            let raw_deck: MoxfieldDeck = self
+                .get_moxfield_deck(
+                    &client,
+                    format!("https://api.moxfield.com/v2/decks/all/{}", &caps[1]),
+                )
+                .await?;
             let mut deck = Deck::new();
             for (name, card) in raw_deck.mainboard {
                 if let Some(c) = self.get(&name) {
@@ -105,14 +115,20 @@ impl AtomicCardCollection {
         }
     }
 
-    async fn get_moxfield_deck(&self, client: &hyper::Client<HttpsConnector<HttpConnector>, body::Body>, url: String) -> Result<MoxfieldDeck, Box<dyn Error>> {
-        let res = client.request(
-            Request::builder()
-            .method("GET")
-            .uri(url)
-            .body(body::Body::from(""))
-            .unwrap(),
-        ).await?;
+    async fn get_moxfield_deck(
+        &self,
+        client: &hyper::Client<HttpsConnector<HttpConnector>, body::Body>,
+        url: String,
+    ) -> Result<MoxfieldDeck, Box<dyn Error>> {
+        let res = client
+            .request(
+                Request::builder()
+                    .method("GET")
+                    .uri(url)
+                    .body(body::Body::from(""))
+                    .unwrap(),
+            )
+            .await?;
         Ok(serde_json::from_str(&response_into_string(res).await?)?)
     }
 }

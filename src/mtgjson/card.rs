@@ -11,6 +11,7 @@ use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
 use core::fmt;
+use std::collections::HashSet;
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
@@ -93,8 +94,26 @@ pub struct AtomicCard {
 }
 
 impl AtomicCard {
-    pub fn get_names(&self) -> Vec<String> {
-        todo!()
+    pub fn get_names(&self) -> HashSet<String> {
+        let mut digest: HashSet<String> = self.faces.iter().map(|f| f.name.clone()).collect();
+        digest.insert(self.faces[0].name.clone());
+        if let Some(name) = self
+            .faces
+            .iter()
+            .map(|f| f.name.clone())
+            .reduce(|a, b| format!("{} / {}", a, b))
+        {
+            digest.insert(name);
+        }
+        if let Some(name) = self
+            .faces
+            .iter()
+            .map(|f| f.name.clone())
+            .reduce(|a, b| format!("{} // {}", a, b))
+        {
+            digest.insert(name);
+        }
+        digest
     }
 }
 
