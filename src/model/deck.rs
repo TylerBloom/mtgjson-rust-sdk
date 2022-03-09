@@ -5,32 +5,63 @@ use super::abstract_card::AbstractCard;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct Deck {
     name: Option<String>,
-    cards: HashBag<AbstractCard>,
+    mainboard: HashBag<AbstractCard>,
+    sideboard: HashBag<AbstractCard>,
+    commanders: HashBag<AbstractCard>,
 }
 
 impl Deck {
-    pub fn new(cards: HashBag<AbstractCard>) -> Self {
-        Deck { name: None, cards }
-    }
-
-    pub fn with_name(name: String, cards: HashBag<AbstractCard>) -> Self {
+    pub fn new() -> Self {
         Deck {
-            name: Some(name),
-            cards,
+            name: None,
+            mainboard: HashBag::new(),
+            sideboard: HashBag::new(),
+            commanders: HashBag::new(),
         }
     }
 
+    pub fn add_commander(&mut self, commander: AbstractCard) -> usize {
+        self.commanders.insert(commander)
+    }
+
+    pub fn remove_commander(&mut self, commander: &AbstractCard) -> usize {
+        self.commanders.remove(&commander)
+    }
+
+    pub fn add_name(&mut self, name: String) -> Option<String> {
+        self.name.replace(name)
+    }
+
+    pub fn remove_name(&mut self) -> Option<String> {
+        self.name.take()
+    }
+
     pub fn get_card_count(&self, card: &AbstractCard) -> usize {
-        self.cards.get(card).map_or(0usize, |(_, count)| count)
+        self.mainboard.get(card).map_or(0usize, |(_, count)| count)
+            + self.sideboard.get(card).map_or(0usize, |(_, count)| count)
+            + self.commanders.get(card).map_or(0usize, |(_, count)| count)
     }
 
     pub fn add_card(&mut self, count: usize, card: AbstractCard) -> usize {
-        self.cards.insert_many(card, count)
+        self.mainboard.insert_many(card, count)
     }
 
     pub fn remove_card(&mut self, mut count: usize, card: &AbstractCard) -> usize {
         let mut digest: usize = 0;
-        while count != 0 && self.cards.remove(card) != 0 {
+        while count != 0 && self.mainboard.remove(card) != 0 {
+            digest += 1;
+            count -= 1;
+        }
+        digest
+    }
+
+    pub fn add_sideboard_card(&mut self, count: usize, card: AbstractCard) -> usize {
+        self.sideboard.insert_many(card, count)
+    }
+
+    pub fn remove_sideboard_card(&mut self, mut count: usize, card: &AbstractCard) -> usize {
+        let mut digest: usize = 0;
+        while count != 0 && self.sideboard.remove(card) != 0 {
             digest += 1;
             count -= 1;
         }

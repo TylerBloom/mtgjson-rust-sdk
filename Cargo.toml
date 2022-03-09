@@ -12,6 +12,8 @@ dashmap = { version = "5.0" }
 regex = { version = "1.5.4" }
 hashbag = { version = "0.1.4" }
 lazy_static = { version = "1.4.0" }
+hyper = { version = "0.14.16", features = ["client", "http1", "tcp"] }
+hyper-tls = { version = "0.5.0" }
 uuid = { version = "0.8", features = ["v5"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0.68" }

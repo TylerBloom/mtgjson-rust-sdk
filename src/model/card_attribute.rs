@@ -18,7 +18,7 @@ pub enum AttributeType {
     HandModifier,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum AttributeInstance {
     ColorIndicator(ColorIndicator),
     Loyalty(Loyalty),
@@ -28,7 +28,7 @@ pub enum AttributeInstance {
     HandModifier(HandModifier),
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AttributeMap {
     attribs: HashMap<AttributeType, AttributeInstance>,
 }
@@ -44,46 +44,46 @@ pub struct CardFace {
     attribs: AttributeMap,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ColorIndicator {
     colors: HashSet<Colors>,
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Loyalty {
     Known(i8),
     CDA(String),
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Power {
     Known(i8),
     CDA(String),
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Toughness {
     Known(i8),
     CDA(String),
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct PowerToughness {
     power: Power,
     toughness: Toughness,
 }
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BottomHalf {
     face: CardFace,
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct LifeModifier {
     modifier: i8,
 }
 
-#[derive(Clone, Debug, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct HandModifier {
     modifier: i8,
 }
