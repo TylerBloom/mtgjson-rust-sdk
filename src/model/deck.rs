@@ -1,8 +1,9 @@
 use hashbag::HashBag;
+use serde::{Serialize, Deserialize};
 
 use super::abstract_card::AbstractCard;
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct Deck {
     name: Option<String>,
     mainboard: HashBag<AbstractCard>,

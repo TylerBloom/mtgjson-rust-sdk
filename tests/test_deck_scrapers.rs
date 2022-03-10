@@ -1,7 +1,6 @@
 #[cfg(test)]
 mod tests {
-    use mtgjson::model::abstract_card::AbstractCard;
-    use mtgjson::model::atomics_collection::AtomicCardCollection;
+    use mtgjson::model::{abstract_card::AbstractCard, atomics_collection::AtomicCardCollection, deck::Deck};
     use serde_json;
     use std::env;
     use std::fs;
@@ -38,7 +37,13 @@ mod tests {
         let collection = AtomicCardCollection::from(all_cards);
         for deck in decks {
             println!("Fetching deck: {}", deck);
-            assert!(collection.import_deck(deck.to_string()).await.is_ok());
+            let imported_deck = collection.import_deck(deck.to_string()).await;
+            assert!(imported_deck.is_ok());
+            let unwrapped_deck = imported_deck.unwrap();
+            let json = serde_json::to_string(&unwrapped_deck).unwrap();
+            let deser_deck: Deck = serde_json::from_str(&json).unwrap();
+            println!("{:?}", deser_deck);
+            assert_eq!(unwrapped_deck, deser_deck);
         }
     }
 }
