@@ -95,12 +95,12 @@ pub struct AtomicCard {
 
 impl AtomicCard {
     pub fn get_names(&self) -> HashSet<String> {
-        let mut digest: HashSet<String> = self.faces.iter().map(|f| f.name.clone()).collect();
+        let mut digest: HashSet<String> = self.faces.iter().filter_map(|f| f.faceName.clone()).collect();
         digest.insert(self.faces[0].name.clone());
         if let Some(name) = self
             .faces
             .iter()
-            .map(|f| f.name.clone())
+            .filter_map(|f| f.faceName.clone())
             .reduce(|a, b| format!("{} / {}", a, b))
         {
             digest.insert(name);
@@ -108,10 +108,13 @@ impl AtomicCard {
         if let Some(name) = self
             .faces
             .iter()
-            .map(|f| f.name.clone())
+            .filter_map(|f| f.faceName.clone())
             .reduce(|a, b| format!("{} // {}", a, b))
         {
             digest.insert(name);
+        }
+        if self.faces[0].name.contains("Okaun, Eye of Chaos") {
+            println!("{:?}", self);
         }
         digest
     }

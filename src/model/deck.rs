@@ -36,6 +36,18 @@ impl Deck {
     pub fn remove_name(&mut self) -> Option<String> {
         self.name.take()
     }
+    
+    pub fn get_mainboard(&self) -> &HashBag<AbstractCard> {
+        &self.mainboard
+    }
+    
+    pub fn get_sideboard(&self) -> &HashBag<AbstractCard> {
+        &self.mainboard
+    }
+    
+    pub fn get_commanders(&self) -> &HashBag<AbstractCard> {
+        &self.mainboard
+    }
 
     pub fn get_card_count(&self, card: &AbstractCard) -> usize {
         self.mainboard.get(card).map_or(0usize, |(_, count)| count)

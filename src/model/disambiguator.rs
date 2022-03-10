@@ -16,9 +16,9 @@ impl CardNameDisambiguator {
         let mut name_lookup = HashMap::with_capacity(atomics.data.len());
         for (true_name, card) in &atomics.data {
             for n in card.get_names() {
-                let i = name_lookup.insert(n, true_name.clone());
+                let i = name_lookup.insert(n.clone(), true_name.clone());
                 if i.is_some() {
-                    panic!("Multiple cards with the same name found!! {}", true_name)
+                    println!("Multiple cards with the same name found!!\n\ttrue name: {}\n\talias: {}\n", true_name, n)
                 }
             }
         }
