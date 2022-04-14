@@ -10,8 +10,7 @@ authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 [dependencies]
 dashmap = { version = "5.0" }
 regex = { version = "1.5.4" }
-#hashbag = { version = "0.1.4" }
-hashbag = { git = "https://github.com/TylerBloom/hashbag", features = ["with_serde"] }
+hashbag = { version = "0.1.5", features = ["serde"] }
 lazy_static = { version = "1.4.0" }
 hyper = { version = "0.14.16", features = ["client", "http1", "tcp"] }
 hyper-tls = { version = "0.5.0" }
