@@ -50,6 +50,7 @@ mod tests {
         digest
     }
 
+    /*
     #[tokio::test]
     async fn test_moxfield_decks() {
         let atomics_path = get_data_file("AtomicCards.json");
@@ -73,4 +74,5 @@ mod tests {
             assert_eq!(unwrapped_deck, deser_deck);
         }
     }
+    */
 }

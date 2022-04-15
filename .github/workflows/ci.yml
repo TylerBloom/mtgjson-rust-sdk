@@ -1,4 +1,4 @@
-name: SquireCore CI
+name: MTGJSON CI
 
 on:
   push:
@@ -11,7 +11,7 @@ env:
 
 jobs:
   windows_build_and_test:
-    name: SquireCore - Tests - Windows
+    name: MTGJSON - Tests - Windows
     runs-on: windows-latest
     strategy:
       matrix:
@@ -26,7 +26,7 @@ jobs:
       - run: cargo test --verbose
       - run: cargo doc --verbose
   linux_build_and_test:
-    name: SquireCore - Tests - Linux
+    name: MTGJSON - Tests - Linux
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -41,7 +41,7 @@ jobs:
       - run: cargo test --verbose
       - run: cargo doc --verbose
   coverage:
-    name: SquireCore - Coverage
+    name: MTGJSON - Coverage
     runs-on: ubuntu-latest
     container:
       image: xd009642/tarpaulin:develop-nightly
