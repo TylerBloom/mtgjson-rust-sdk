@@ -231,3 +231,9 @@ impl AsManaSymbol for ManaSymbol {
         }
     }
 }
+
+impl From<&str> for ManaSymbol {
+    fn from(s: &str) -> Self {
+        todo!()
+    }
+}

@@ -22,7 +22,8 @@ mod tests {
             serde_json::from_str(&file_data).expect("Data could not be parsed.");
         for (n, c) in all_cards.data {
             println!("Converting {}", n);
-            let _ab = AbstractCard::from(&c);
+            let ab = AbstractCard::from(&c);
+            let _s = serde_json::to_string(&ab);
         }
     }
 

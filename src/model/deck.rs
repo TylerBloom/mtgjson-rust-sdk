@@ -3,7 +3,7 @@ use serde::{Serialize, Deserialize};
 
 use super::abstract_card::AbstractCard;
 
-#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Hash, Clone)]
 pub struct Deck {
     name: Option<String>,
     mainboard: HashBag<AbstractCard>,
