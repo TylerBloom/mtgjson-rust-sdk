@@ -10,7 +10,7 @@ pub struct AbstractCard {
 }
 
 impl AbstractCard {
-    fn get_name(&self) -> String {
+    pub fn get_name(&self) -> String {
         match &self.back_face {
             Some(back) => format!("{} // {}", self.front_face.name, back.name),
             None => format!("{}", self.front_face.name),
