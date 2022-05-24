@@ -30,23 +30,23 @@ pub enum AttributeInstance {
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct AttributeMap {
-    attribs: HashMap<AttributeType, AttributeInstance>,
+    pub attribs: HashMap<AttributeType, AttributeInstance>,
 }
 
 #[derive(Clone, PartialEq, Eq, Debug, Serialize, Deserialize)]
 pub struct CardFace {
-    name: String,
-    cost: ManaCost,
-    supertypes: HashSet<String>,
-    types: HashSet<String>,
-    subtypes: HashSet<String>,
-    text: String,
-    attribs: AttributeMap,
+    pub name: String,
+    pub cost: ManaCost,
+    pub supertypes: HashSet<String>,
+    pub types: HashSet<String>,
+    pub subtypes: HashSet<String>,
+    pub text: String,
+    pub attribs: AttributeMap,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ColorIndicator {
-    colors: HashSet<Colors>,
+    pub colors: HashSet<Colors>,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
@@ -69,23 +69,23 @@ pub enum Toughness {
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct PowerToughness {
-    power: Power,
-    toughness: Toughness,
+    pub power: Power,
+    pub toughness: Toughness,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BottomHalf {
-    face: CardFace,
+    pub face: CardFace,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct LifeModifier {
-    modifier: i8,
+    pub modifier: i8,
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct HandModifier {
-    modifier: i8,
+    pub modifier: i8,
 }
 
 impl CardFace {

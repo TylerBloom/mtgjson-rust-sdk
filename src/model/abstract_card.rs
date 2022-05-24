@@ -5,8 +5,17 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Hash, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct AbstractCard {
-    front_face: CardFace,
-    back_face: Option<CardFace>,
+    pub front_face: CardFace,
+    pub back_face: Option<CardFace>,
+}
+
+impl AbstractCard {
+    fn get_name(&self) -> String {
+        match &self.back_face {
+            Some(back) => format!("{} // {}", self.front_face.name, back.name),
+            None => format!("{}", self.front_face.name),
+        }
+    }
 }
 
 impl From<&AtomicCard> for AbstractCard {
@@ -25,9 +34,10 @@ impl From<&AtomicCard> for AbstractCard {
             };
         }
 
-        AbstractCard {
+        Self {
             front_face,
             back_face,
         }
     }
+    
 }
