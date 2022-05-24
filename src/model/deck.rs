@@ -5,10 +5,10 @@ use super::abstract_card::AbstractCard;
 
 #[derive(Serialize, Deserialize, Debug, PartialEq, Eq, Clone)]
 pub struct Deck {
-    name: Option<String>,
-    mainboard: HashBag<AbstractCard>,
-    sideboard: HashBag<AbstractCard>,
-    commanders: HashBag<AbstractCard>,
+    pub name: Option<String>,
+    pub mainboard: HashBag<AbstractCard>,
+    pub sideboard: HashBag<AbstractCard>,
+    pub commanders: HashBag<AbstractCard>,
 }
 
 impl Deck {
