@@ -1,6 +1,7 @@
 use std::error::Error;
 use std::fmt;
 
+use cycle_map::{CycleMap, GroupMap};
 use hyper::{body, client::connect::HttpConnector, Client, Request};
 use hyper_tls::HttpsConnector;
 use lazy_static::lazy_static;
@@ -8,7 +9,6 @@ use regex::Regex;
 
 use super::{
     abstract_card::AbstractCard, deck::Deck, deck_sites::moxfield::MoxfieldDeck,
-    disambiguator::CardNameDisambiguator,
 };
 use crate::{
     mtgjson::{atomics::Atomics, card::AtomicCard},
@@ -16,20 +16,26 @@ use crate::{
 };
 
 pub struct AtomicCardCollection {
-    disamb: CardNameDisambiguator,
-    atomics: Atomics,
+    cards: GroupMap<String, AtomicCard>,
 }
 
 impl From<Atomics> for AtomicCardCollection {
+    #[inline]
     fn from(atomics: Atomics) -> Self {
-        let disamb = CardNameDisambiguator::from_atomics(&atomics);
-        AtomicCardCollection { disamb, atomics }
+        Self::new(atomics)
     }
 }
 
 impl AtomicCardCollection {
-    pub fn new(atomics: Atomics, disamb: CardNameDisambiguator) -> Self {
-        AtomicCardCollection { atomics, disamb }
+    pub fn new(atomics: Atomics) -> Self {
+        let mut cards = GroupMap::with_capacity(atomics.data.len());
+        for (_, c) in &atomics.data {
+            cards.insert_right(c.clone());
+            for n in c.get_names() {
+                cards.insert_left(n, &c);
+            }
+        }
+        Self { cards }
     }
 
     pub fn create_deck(&self, raw_deck: String) -> Result<Deck, ()> {
@@ -107,12 +113,8 @@ impl AtomicCardCollection {
         }
     }
 
-    pub fn get(&self, name: &str) -> Option<AtomicCard> {
-        if let Some(n) = self.disamb.get(name) {
-            self.atomics.get(n)
-        } else {
-            None
-        }
+    pub fn get(&self, name: &String) -> Option<AtomicCard> {
+        self.cards.get_right(name).cloned()
     }
 
     async fn get_moxfield_deck(

@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
 use core::fmt;
-use std::collections::HashSet;
+use std::{collections::HashSet, hash::{Hasher, Hash}};
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
@@ -87,7 +87,7 @@ pub struct AtomicCardFace {
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
-#[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(Serialize, Deserialize, Debug, Clone, Hash, PartialEq, Eq)]
 #[serde(transparent)]
 pub struct AtomicCard {
     pub faces: Vec<AtomicCardFace>,
@@ -130,6 +130,20 @@ impl fmt::Display for AtomicCardFace {
         write!(f, "{}", digest)
     }
 }
+
+impl Hash for AtomicCardFace {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.name.hash(state);
+    }
+}
+
+impl PartialEq for AtomicCardFace {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+    }
+}
+
+impl Eq for AtomicCardFace { }
 
 impl fmt::Display for AtomicCard {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

@@ -9,6 +9,7 @@ authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 
 [dependencies]
 regex = { version = "1.5.4" }
+cycle_map = { version = "0.1.1" }
 hashbag = { version = "0.1.5", features = ["serde"] }
 lazy_static = { version = "1.4.0" }
 uuid = { version = "0.8", features = ["v5"] }
