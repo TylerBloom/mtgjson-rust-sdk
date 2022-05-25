@@ -17,9 +17,11 @@ impl CardNameDisambiguator {
         for (true_name, card) in &atomics.data {
             for n in card.get_names() {
                 let i = name_lookup.insert(n.clone(), true_name.clone());
+                /*
                 if i.is_some() {
                     println!("Multiple cards with the same name found!!\n\ttrue name: {}\n\talias: {}\n", true_name, n)
                 }
+                */
             }
         }
         CardNameDisambiguator::new(name_lookup)

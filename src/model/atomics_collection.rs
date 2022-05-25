@@ -38,7 +38,7 @@ impl AtomicCardCollection {
         Self { cards }
     }
 
-    pub fn create_deck(&self, raw_deck: String) -> Result<Deck, ()> {
+    pub fn create_deck(&self, raw_deck: String) -> Option<Deck> {
         /*
          * This will be the single deck-creation interface for strings.
          * If a special deck format needs to be supported, the `get` method can help.
@@ -50,7 +50,7 @@ impl AtomicCardCollection {
         todo!()
     }
 
-    pub async fn import_deck(&self, url: String) -> Result<Deck, Box<dyn Error>> {
+    pub async fn import_deck(&self, url: String) -> Option<Deck> {
         /*
          * This will be the single deck-creation interface for scraping decks from the web.
          * I can't support all deck sites, but new ones can be added.
@@ -80,36 +80,36 @@ impl AtomicCardCollection {
                     &client,
                     format!("https://api.moxfield.com/v2/decks/all/{}", &caps[1]),
                 )
-                .await?;
+                .await.ok()?;
             let mut deck = Deck::new();
             for (name, card) in raw_deck.mainboard {
                 if let Some(c) = self.get(&name) {
                     deck.add_card(card.quantity, AbstractCard::from(&c));
                 } else {
-                    return Err(Box::new(AtomicsError {}));
+                    return None;
                 }
             }
             for (name, card) in raw_deck.sideboard {
                 if let Some(c) = self.get(&name) {
                     deck.add_sideboard_card(card.quantity, AbstractCard::from(&c));
                 } else {
-                    return Err(Box::new(AtomicsError {}));
+                    return None;
                 }
             }
             for (name, card) in raw_deck.commanders {
                 if let Some(c) = self.get(&name) {
                     deck.add_commander(AbstractCard::from(&c));
                 } else {
-                    return Err(Box::new(AtomicsError {}));
+                    return None;
                 }
             }
-            Ok(deck)
+            Some(deck)
         } else if let Some(caps) = TAPPEDOUT_URL_RE.captures(&url) {
             todo!();
             let mut deck = Deck::new();
-            Ok(deck)
+            Some(deck)
         } else {
-            Err(Box::new(AtomicsError {}))
+            None
         }
     }
 
