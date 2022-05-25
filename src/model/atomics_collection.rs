@@ -69,11 +69,11 @@ impl AtomicCardCollection {
         if let Some(caps) = SCRYFALL_URL_RE.captures(&url) {
             todo!();
             let mut deck = Deck::new();
-            Ok(deck)
+            Some(deck)
         } else if let Some(caps) = GOLDFISH_URL_RE.captures(&url) {
             todo!();
             let mut deck = Deck::new();
-            Ok(deck)
+            Some(deck)
         } else if let Some(caps) = MOXFIELD_URL_RE.captures(&url) {
             let raw_deck: MoxfieldDeck = self
                 .get_moxfield_deck(
