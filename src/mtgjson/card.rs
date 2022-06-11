@@ -113,9 +113,11 @@ impl AtomicCard {
         {
             digest.insert(name);
         }
+        /*
         if self.faces[0].name.contains("Okaun, Eye of Chaos") {
             println!("{:?}", self);
         }
+        */
         digest
     }
 }
