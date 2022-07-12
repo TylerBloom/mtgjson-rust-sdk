@@ -7,12 +7,18 @@ license = "GPL-3.0"
 authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 
 
+[features]
+deck_sites = ["hyper", "hyper-tls"]
+default = ["hyper", "hyper-tls"]
+
+
 [dependencies]
 regex = { version = "1.5.4" }
 cycle_map = { version = "0.1.1" }
 hashbag = { version = "0.1.5", features = ["serde"] }
 lazy_static = { version = "1.4.0" }
 uuid = { version = "0.8", features = ["v5"] }
+
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0.68" }
 serde_with = { version = "1.5.1" }
@@ -20,9 +26,8 @@ serde_with = { version = "1.5.1" }
 # Why is this here... concurrent solutions should either be optional or handled by users
 #dashmap = { version = "5.0" }
 
-# Make these optional
-hyper = { version = "0.14.16", features = ["client", "http1", "tcp"] }
-hyper-tls = { version = "0.5.0" }
+hyper = { version = "0.14.16", features = ["client", "http1", "tcp"], optional = true }
+hyper-tls = { version = "0.5.0", optional = true }
 
 [dev-dependencies]
 tokio = { version = "1.15.0", features = ["rt", "macros"] }

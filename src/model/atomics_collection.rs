@@ -1,18 +1,24 @@
 use std::error::Error;
 use std::fmt;
 
-use cycle_map::{CycleMap, GroupMap};
+#[cfg(feature = "deck_sites")]
 use hyper::{body, client::connect::HttpConnector, Client, Request};
+#[cfg(feature = "deck_sites")]
 use hyper_tls::HttpsConnector;
+
 use lazy_static::lazy_static;
 use regex::Regex;
 
-use super::{
-    abstract_card::AbstractCard, deck::Deck, deck_sites::moxfield::MoxfieldDeck,
+use cycle_map::{CycleMap, GroupMap};
+
+#[cfg(feature = "deck_sites")]
+use crate::{
+    model::deck_sites::moxfield::MoxfieldDeck,
+    utils::response_into_string,
 };
 use crate::{
+    model::{abstract_card::AbstractCard, deck::Deck},
     mtgjson::{atomics::Atomics, card::AtomicCard},
-    utils::response_into_string,
 };
 
 pub struct AtomicCardCollection {
@@ -50,6 +56,7 @@ impl AtomicCardCollection {
         todo!()
     }
 
+    #[cfg(feature = "deck_sites")]
     pub async fn import_deck(&self, url: String) -> Option<Deck> {
         /*
          * This will be the single deck-creation interface for scraping decks from the web.
@@ -117,6 +124,7 @@ impl AtomicCardCollection {
         self.cards.get_right(name).cloned()
     }
 
+    #[cfg(feature = "deck_sites")]
     async fn get_moxfield_deck(
         &self,
         client: &hyper::Client<HttpsConnector<HttpConnector>, body::Body>,
