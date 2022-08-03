@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 use hashbag::HashBag;
 use serde::{Serialize, Deserialize};
 
@@ -57,6 +59,10 @@ impl Deck {
 
     pub fn add_card(&mut self, count: usize, card: AbstractCard) -> usize {
         self.mainboard.insert_many(card, count)
+    }
+
+    pub fn get_card(&self, card: &AbstractCard) -> AbstractCard {
+        self.mainboard.get(card).unwrap().0.clone()
     }
 
     pub fn remove_card(&mut self, mut count: usize, card: &AbstractCard) -> usize {
