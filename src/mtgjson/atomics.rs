@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use super::card::AtomicCard;
 use super::meta::Meta;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct Atomics {
     pub data: HashMap<String, AtomicCard>,
     meta: Meta,
