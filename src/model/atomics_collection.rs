@@ -21,7 +21,7 @@ use crate::{
     mtgjson::{atomics::Atomics, card::AtomicCard},
 };
 
-#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Clone)]
 pub struct AtomicCardCollection {
     pub cards: GroupMap<String, AtomicCard>,
 }
