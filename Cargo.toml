@@ -13,7 +13,7 @@ default = ["hyper", "hyper-tls"]
 
 [dependencies]
 regex = { version = "1.5.4" }
-cycle_map = { version = "0.1.1" }
+cycle_map = { version = "0.1.1", features = ["serde"] }
 hashbag = { version = "0.1.5", features = ["serde"] }
 lazy_static = { version = "1.4.0" }
 uuid = { version = "0.8", features = ["v5"] }

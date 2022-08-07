@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use cycle_map::GroupMap;
+use cycle_map::CycleMap;
 use hashbag::HashBag;
 
 use super::atomics_collection::AtomicCardCollection;
@@ -98,19 +98,18 @@ impl MinimalDeck {
     }
 }
 
+#[derive(Debug, PartialEq, Clone, Serialize, Deserialize)]
 pub struct MinimalCardCollection {
-    pub cards: GroupMap<String, MinimalCard>,
+    pub cards: CycleMap<String, MinimalCard>,
 }
 
 impl MinimalCardCollection {
     pub fn new(atomics: AtomicCardCollection, lang: &String) -> Self {
-        let mut cards = GroupMap::with_capacity(atomics.cards.len_right());
+        let mut cards = CycleMap::with_capacity(atomics.cards.len_right());
         for c in atomics.cards.iter_right() {
             let mc = c.as_minimal(lang).unwrap();
-            cards.insert_right(mc.clone());
-            for n in c.get_names() {
-                cards.insert_left(n, &mc);
-            }
+            let name = mc.name.clone();
+            cards.insert(name, mc);
         }
         Self { cards }
     }
