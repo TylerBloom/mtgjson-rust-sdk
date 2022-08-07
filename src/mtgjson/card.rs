@@ -1,3 +1,5 @@
+use crate::model::minimal_card::{MinimalCard, MinimalCardFace};
+
 use super::foreign_data::ForeignData;
 use super::identifiers::Identifiers;
 use super::leadership_skills::LeadershipSkills;
@@ -11,7 +13,10 @@ use serde::{Deserialize, Serialize};
 use serde_with::skip_serializing_none;
 
 use core::fmt;
-use std::{collections::HashSet, hash::{Hasher, Hash}};
+use std::{
+    collections::HashSet,
+    hash::{Hash, Hasher},
+};
 
 #[allow(non_snake_case)]
 #[skip_serializing_none]
@@ -81,6 +86,7 @@ pub struct AtomicCardFace {
     pub text: Option<String>,
     pub toughness: Option<String>,
     pub types: Vec<String>,
+    pub r#type: String,
     variations: Option<Vec<String>>,
     watermark: Option<Vec<String>>,
 }
@@ -95,7 +101,11 @@ pub struct AtomicCard {
 
 impl AtomicCard {
     pub fn get_names(&self) -> HashSet<String> {
-        let mut digest: HashSet<String> = self.faces.iter().filter_map(|f| f.faceName.clone()).collect();
+        let mut digest: HashSet<String> = self
+            .faces
+            .iter()
+            .filter_map(|f| f.faceName.clone())
+            .collect();
         digest.insert(self.faces[0].name.clone());
         if let Some(name) = self
             .faces
@@ -119,6 +129,98 @@ impl AtomicCard {
         }
         */
         digest
+    }
+
+    // Option is returned if the language can't be found
+    pub fn as_minimal(&self, lang: &String) -> Option<MinimalCard> {
+        let name = self
+            .faces
+            .first()?
+            .foreignData
+            .as_ref()?
+            .iter()
+            .find_map(|f| {
+                if f.language.as_ref()? == lang {
+                    f.name.clone()
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| self.faces.first().unwrap().name.clone());
+        let oracle_id = self
+            .faces
+            .first()?
+            .identifiers
+            .as_ref()?
+            .scryfallOracleId
+            .as_ref()?
+            .clone();
+        let mut faces = Vec::with_capacity(self.faces.len());
+        for face in self.faces.iter() {
+            faces.push(face.as_minimal(lang)?);
+        }
+        Some(MinimalCard {
+            name,
+            oracle_id,
+            faces,
+        })
+    }
+}
+
+impl AtomicCardFace {
+    // Options is returned if the language can't be found
+    pub fn as_minimal(&self, lang: &String) -> Option<MinimalCardFace> {
+        let face_name = self
+            .foreignData
+            .as_ref()?
+            .iter()
+            .find_map(|f| {
+                if f.language.as_ref()? == lang {
+                    if let Some(name) = f.faceName.as_ref() {
+                        Some(name.clone())
+                    } else {
+                        f.name.clone()
+                    }
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| {
+                if let Some(name) = self.faceName.as_ref() {
+                    name.clone()
+                } else {
+                    self.name.clone()
+                }
+            });
+        let text = self
+            .foreignData
+            .as_ref()?
+            .iter()
+            .find_map(|f| {
+                if f.language.as_ref()? == lang {
+                    Some(f.text.clone().unwrap_or_default())
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| self.text.clone().unwrap_or_default());
+        let types = self
+            .foreignData
+            .as_ref()?
+            .iter()
+            .find_map(|f| {
+                if f.language.as_ref()? == lang {
+                    f.r#type.clone()
+                } else {
+                    None
+                }
+            })
+            .unwrap_or_else(|| self.r#type.clone());
+        Some(MinimalCardFace {
+            face_name,
+            text,
+            types,
+        })
     }
 }
 
@@ -145,7 +247,7 @@ impl PartialEq for AtomicCardFace {
     }
 }
 
-impl Eq for AtomicCardFace { }
+impl Eq for AtomicCardFace {}
 
 impl fmt::Display for AtomicCard {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {

@@ -23,7 +23,10 @@ mod tests {
         for (n, c) in all_cards.data {
             println!("Converting {}", n);
             let ab = AbstractCard::from(&c);
-            let _s = serde_json::to_string(&ab);
+            let _s = serde_json::to_string(&ab).expect(&format!("Could not convert {} to string", ab.get_name()));
+            let _mc = c.as_minimal(&"English".into()).expect(&format!("Could not minimize {} in English", ab.get_name()));
+            let _mc = c.as_minimal(&"Spanish".into()).expect(&format!("Could not minimize {} in Spanish", ab.get_name()));
+            let _mc = c.as_minimal(&"Chinese Simplified".into()).expect(&format!("Could not minimize {} in Chinese Simplified", ab.get_name()));
         }
     }
 

@@ -22,7 +22,7 @@ use crate::{
 };
 
 pub struct AtomicCardCollection {
-    cards: GroupMap<String, AtomicCard>,
+    pub cards: GroupMap<String, AtomicCard>,
 }
 
 impl From<Atomics> for AtomicCardCollection {

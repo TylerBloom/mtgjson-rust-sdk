@@ -2,8 +2,7 @@
 name = "mtgjson"
 version = "0.0.0"
 edition = "2021"
-license = "GPL-3.0"
-#rust-version = "1.58.1"
+license = "LGPL-2.1"
 authors = ["TylerBloom <tylerbloom2222@gmail.com>"]
 
 
