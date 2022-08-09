@@ -147,14 +147,11 @@ impl AtomicCard {
                 }
             })
             .unwrap_or_else(|| self.faces.first().unwrap().name.clone());
-        let oracle_id = self
-            .faces
-            .first()?
-            .identifiers
-            .as_ref()?
+        let idents = self.faces.first()?.identifiers.as_ref()?;
+        let oracle_id = idents
             .scryfallOracleId
-            .as_ref()?
-            .clone();
+            .clone()
+            .unwrap_or_else(|| idents.scryfallId.clone().unwrap());
         let mut faces = Vec::with_capacity(self.faces.len());
         for face in self.faces.iter() {
             faces.push(face.as_minimal(lang)?);
@@ -185,13 +182,7 @@ impl AtomicCardFace {
                     None
                 }
             })
-            .unwrap_or_else(|| {
-                if let Some(name) = self.faceName.as_ref() {
-                    name.clone()
-                } else {
-                    self.name.clone()
-                }
-            });
+            .unwrap_or_else(|| self.faceName.clone().unwrap_or_else(|| self.name.clone()));
         let text = self
             .foreignData
             .as_ref()?
