@@ -1,9 +1,20 @@
+use std::error::Error;
+
 use serde::{Deserialize, Serialize};
 
 use cycle_map::CycleMap;
 use hashbag::HashBag;
 
-use super::atomics_collection::AtomicCardCollection;
+#[cfg(feature = "deck_sites")]
+use hyper::{body, client::connect::HttpConnector, Client, Request};
+#[cfg(feature = "deck_sites")]
+use hyper_tls::HttpsConnector;
+
+use regex::Regex;
+
+use crate::model::{atomics_collection::AtomicCardCollection, deck::Deck};
+#[cfg(feature = "deck_sites")]
+use crate::{model::deck_sites::moxfield::MoxfieldDeck, utils::response_into_string};
 
 #[derive(Serialize, Deserialize, Debug, Clone, Hash, PartialEq, Eq)]
 pub struct MinimalCardFace {
@@ -156,7 +167,7 @@ impl MinimalCardCollection {
             let mut deck = Deck::new();
             for (name, card) in raw_deck.mainboard {
                 if let Some(c) = self.get(&name) {
-                    deck.add_card(card.quantity, MinimalCard::from(&c));
+                    deck.add_card(card.quantity, MinimalCard::from(c));
                 } else {
                     return None;
                 }

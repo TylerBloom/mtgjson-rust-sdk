@@ -1,4 +1,4 @@
-use crate::model::minimal_card::{MinimalCard, MinimalCardFace};
+//use crate::model::minimal_card::{MinimalCard, MinimalCardFace};
 
 use super::foreign_data::ForeignData;
 use super::identifiers::Identifiers;
@@ -131,6 +131,7 @@ impl AtomicCard {
         digest
     }
 
+    /*
     // Option is returned if the language can't be found
     pub fn as_minimal(&self, lang: &String) -> Option<MinimalCard> {
         let name = self
@@ -162,9 +163,11 @@ impl AtomicCard {
             faces,
         })
     }
+    */
 }
 
 impl AtomicCardFace {
+    /*
     // Options is returned if the language can't be found
     pub fn as_minimal(&self, lang: &String) -> Option<MinimalCardFace> {
         let face_name = self
@@ -213,6 +216,7 @@ impl AtomicCardFace {
             types,
         })
     }
+    */
 }
 
 impl fmt::Display for AtomicCardFace {

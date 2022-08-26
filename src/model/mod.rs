@@ -9,5 +9,5 @@ pub mod cost;
 pub mod deck;
 pub mod disambiguator;
 pub mod specific_card;
-pub mod minimal_card;
+//pub mod minimal_card;
 pub mod symbols;
