@@ -1,3 +1,5 @@
+use std::hash::Hash;
+
 use hashbag::HashBag;
 use serde::{Serialize, Deserialize};
 
@@ -79,5 +81,13 @@ impl Deck {
             count -= 1;
         }
         digest
+    }
+}
+
+impl Hash for Deck {
+    // TODO: This needs to be improved...
+    // Perhaps we can order the cards?
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.name.hash(state)
     }
 }
